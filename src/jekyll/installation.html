@@ -1,0 +1,53 @@
+---
+layout: main
+title: Talares | Installation
+---
+<article>
+
+  <h1>Installation</h1>
+  <hr>
+
+  <p>The library will have to be added to the project's dependencies:</p>
+
+  <p>SBT</p>
+{% highlight scala %}
+resolvers += Seq("Sonatype OSS Releases" at "https://oss.sonatype.org/content/repositories/releases")
+
+libraryDependencies += "org.talares" %% "talares" % "0.1.0"
+libraryDependencies += "org.talares" %% "talares-java" % "0.1.0" // Only needed to make the Java API available
+{% endhighlight %}
+
+  <p>Maven</p>
+{% highlight xml %}
+<dependency>
+  <groupId>org.talares</groupId>
+  <artifactId>talares_2.10</artifactId>
+  <version>0.1.0</version>
+</dependency>
+<!-- Only needed to make the Java API available -->
+<dependency>
+  <groupId>org.talares</groupId>
+  <artifactId>talares-java_2.10</artifactId>
+  <version>0.1.0</version>
+</dependency>
+
+<repositories>
+  <repository>
+    <id>sonatype-nexus-releases</id>
+    <name>Sonatype OSS Releases</name>
+    <url>https://oss.sonatype.org/content/repositories/releases</url>
+  </repository>
+</repositories>
+{% endhighlight %}
+
+  <p>
+    An <em>application.conf</em> file will have to be present and added to the class path. This is usually done by
+    placing it in the project's resources folder. The key <strong>talares.webservicelocation</strong> needs to be added
+    to this file and it's value set to the URL through which the OData webservice can be reached.
+  </p>
+
+  <p>Example application.conf</p>
+  {% highlight haml %}
+  talares.webservicelocation="http://www.example.com/cd_webservice/odata.svc"
+  {% endhighlight %}
+</article>

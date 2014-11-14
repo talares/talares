@@ -1,0 +1,72 @@
+---
+layout: main
+title: Talares | Cache
+---
+<article>
+
+  <h1>Cache</h1>
+  <hr>
+
+  <p>
+    Talares does not use a caching library of it's own. In stead it leaves supplying a cache implementation up to the
+    user. This is done by creating an instance of one of the caches residing in <strong>org.talares.cache</strong> for
+    Java and <strong>org.talares.cache.api</strong> for Scala. Talares will leverage this instance to apply the chosen
+    caching strategy.
+  </p>
+
+  <p>
+    Specific caching strategies can be chosen by supplying an instance of the corresponding class. The different
+    strategies are described below.
+  </p>
+
+  <article id="no-cache">
+
+    <h2>No cache</h2>
+
+    <p>
+      When no cache is chosen or an instance of NoCache is supplied the 'no cache' strategy is chosen. As the name
+      implies this strategy will not cache results retrieved from the webservice.
+    </p>
+
+  </article>
+
+  <article id="simple-cache">
+
+    <h2>Simple cache</h2>
+
+    <p>
+      The 'simple cache' strategy uses the supplied cache implementation to store results retrieved from the webservice.
+      It does not supply any additional logic of it's own. Therefore the configuration of the supplied cache instance,
+      like time to live, is honored.
+    </p>
+
+  </article>
+
+  <article id="auto-update-cache">
+
+    <h2>Auto update cache</h2>
+
+    <p>
+      When the 'auto update cache' strategy is activated, cached values will be updated using an asynchronous process.
+      This allows for clients to always be served a value from cache while also ensuring that these values are up to
+      date.
+    </p>
+
+    <p>
+      A few configuration steps are needed to make this work. First of all the configuration of the cache implementation
+      supplied by the user will have to be modified to accommodate the auto update cache behaviour. For instance a short
+      TTL might cause cached values to be evicted before the library has a chance to update them.
+    </p>
+
+    <p>
+      Furthermore, users will have to decide the frequency with which to update the cached values. This can be done in
+      the application.conf file using the key <strong>talares.cache.refreshratio</strong>. The value specified here
+      represents the number of times a cached item should be allowed to be accessed before an update task is triggered.
+      It is advised to increase this value to an adequate number for high traffic environments. The result of an
+      incrementation of this value might be that some clients receive slightly outdated content, but the load that is
+      relieved from the webservice will be significant.
+    </p>
+
+  </article>
+
+</article>

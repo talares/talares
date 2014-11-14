@@ -1,0 +1,59 @@
+---
+layout: main
+title: Talares | Scala OData Query DSL
+---
+<article>
+
+  <h1>Scala OData Query DSL</h1>
+  <hr>
+
+  <p>
+    A limited OData query DSL is available to Scala users, allowing them to supply their own queries to be executed by
+    the library. This allows users to extend upon the convenience methods, supplied by the library out of the box, ad
+    hoc.
+  </p>
+
+  <p>
+    The DSL tries to mimic the visual representation of an OData URL as much as operator precedence will allow. The
+    following code demonstrates this.
+  </p>
+
+{% highlight scala %}
+import org.talares.api.queries._
+
+Query / "Pages" / "Component" % ("ItemId" -> 123, "PublicationId" -> 1) $ ("Title" ==| "Test Title") && ("Url" !=| "test-url")
+
+// result: /Pages/Component(ItemId=123,PublicationId=1)?$filter=Title eq 'Test Title' and Url ne 'test-url'
+{% endhighlight %}
+
+  <p>
+    The above example also demonstrates what is currently possible using the DSL, namely specifying endpoints and
+    applying <em>n</em> filters to these endpoints.
+  </p>
+
+  <p>
+    Filters can be applied to any field of a specific data type. In the example above, the fields <em>Title</em> and
+    <em>Url</em> of the data type Page are filtered upon. Note that, in contrary to their Talares representation, the
+    Tridion data type field names use Pascal casing. Also note that the first data type stated in the query is a plural.
+    Consecutive data types, the data types within the first data type, are singularly named.
+  </p>
+
+  <p>
+    Once an instance of a query is created it can be passed to a Talares instance for execution. The specific expected
+    data type will have to be provided so the library will know what data type to unmarshall the webservice response to.
+    The result can either be a single instance or a collection of the expected type as, prior to the execution of the
+    query, it is unknown how many results the query will produce.
+  </p>
+
+  <p>Example usage:</p>
+
+{% highlight scala %}
+import org.talares.api.queries._
+
+val talares = Talares()
+val query = Query \ "Pages" % ("ItemId" -> 123, "PublicationId" -> 1)
+
+val queryResult = talares.executeQuery[Page](query)
+{% endhighlight %}
+
+</article>

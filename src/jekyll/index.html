@@ -1,0 +1,39 @@
+---
+layout: main
+title: Talares
+---
+<article>
+
+  <h1>Talares</h1>
+  <hr>
+
+  <p>
+    Talares is a Scala and Java library that leverages the Tridion OData webservice to make Tridion content available in
+    Scala and Java projects.
+  </p>
+
+  <p>It's main advantages are:</p>
+
+  <ul>
+    <li>Supplies a non-blocking Scala API and both a non-blocking and a blocking Java API.</li>
+    <li>Makes use of an SDL supported product (the Tridion OData webservice).</li>
+    <li>Requires minimal configuration.</li>
+    <li>Removes the need for packaging a Tridion license within a project freeing said project from machine specific
+      configuration and in turn allowing unlimited horizontal scalability.<sup>1</sup>
+    </li>
+    <li>Multiple cache options leverage your own cache implementation. Auto update cache allows for cached content to be
+      updated asynchronously, making sure clients always receive a cached and up to date version of the
+      content.<sup>2</sup>
+    </li>
+    <li>A Scala query DSL allows for extending the core functionality ad-hoc.</li>
+  </ul>
+
+  <p>
+    <sup>1</sup> Horizontal scalability will be limited by the load a single OData webservice will be able to handle and
+    the architecture of the adopting project.<br>
+    <sup>2</sup> Whether a cached value is up to date depends on the frequency of both the cache being updated and the
+    value
+    being accessed.
+  </p>
+
+</article>

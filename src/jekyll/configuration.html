@@ -1,0 +1,27 @@
+---
+layout: main
+title: Talares | Configuration
+---
+<article>
+
+  <h1>Configuration</h1>
+  <hr>
+
+  <p>
+    Further configuration can be done in the <em>application.conf</em> file. The
+    <a href="https://github.com/talares/talares/blob/master/src/talares/src/main/resources/reference.conf">default
+      configuration</a> shows the configuration options and describes what they are used for.
+  </p>
+
+  <p>
+    For more information on the Typesafe Config library, their <a href="https://github.com/typesafehub/config">documentation</a>
+    can be consulted.
+  </p>
+
+  <p>
+    Talares uses <a href="http://akka.io/">Akka</a> for it's core functionality. Akka can also be configured through the
+    <em>application.conf</em> file. As Talares uses the logging framework provided by Akka, changing the log level of
+    the library is done through the configuration key <strong>akka.loglevel</strong>.
+  </p>
+
+</article>
