@@ -15,13 +15,12 @@
  */
 package org.talares.api.actors
 
-import java.util.concurrent.TimeUnit
-
-import akka.actor.{Status, ActorSystem}
+import akka.actor.ActorSystem
 import akka.testkit.{ImplicitSender, TestKit}
 import com.typesafe.config.ConfigFactory
 import org.specs2.mock.Mockito
 import org.specs2.mutable.SpecificationLike
+import org.specs2.time.NoTimeConversions
 import org.talares.api.Talares
 import org.talares.api.actors.messages.MediatorMessages
 import org.talares.api.actors.mock.MockMediator
@@ -30,7 +29,7 @@ import org.talares.api.datatypes.items.Page
 import org.talares.api.datatypes.items.stubs.ItemStubs
 import org.talares.api.queries._
 
-import scala.concurrent.duration.FiniteDuration
+import scala.concurrent.duration._
 
 /**
  * @author Dennis Vis
@@ -38,6 +37,7 @@ import scala.concurrent.duration.FiniteDuration
  */
 class MediatorSpec extends TestKit(ActorSystem("executor-spec", ConfigFactory.load()))
 with ImplicitSender
+with NoTimeConversions
 with MockCaches
 with Mockito
 with SpecificationLike {
@@ -57,48 +57,36 @@ with SpecificationLike {
 
       implicit val jsonReadable = Page.PageJsonReadable
 
-      val message = MediatorMessages.URIRequest[Page](webserviceLocationStub + "/Pages(PublicationId=1,ItemId=2)")
-      val expected = ItemStubs.pageStub.as[Page]
+      val request = MediatorMessages.URIRequest[Page](webserviceLocationStub + "/Pages(PublicationId=1,ItemId=2)")
+      val expected = MediatorMessages.Response(ItemStubs.pageStub.as[Page])
 
-      mockMediatorRef ! message
+      mockMediatorRef ! request
 
-      val result = receiveOne(FiniteDuration(5000, TimeUnit.MILLISECONDS))
-      result match {
-        case MediatorMessages.Response(value) => value == expected
-        case _ => false
-      }
+      receiveOne(1 second) must be equalTo expected
     }
 
     "process an ID request" in {
 
       implicit val jsonReadable = Page.PageJsonReadable
 
-      val message = MediatorMessages.IDRequest[Page](webserviceLocationStub, "PublicationId" -> 1, "ItemId" -> 2)
-      val expected = ItemStubs.pageStub.as[Page]
+      val request = MediatorMessages.IDRequest[Page](webserviceLocationStub, "PublicationId" -> 1, "ItemId" -> 2)
+      val expected = MediatorMessages.Response(ItemStubs.pageStub.as[Page])
 
-      mockMediatorRef ! message
+      mockMediatorRef ! request
 
-      val result = receiveOne(FiniteDuration(5000, TimeUnit.MILLISECONDS))
-      result match {
-        case MediatorMessages.Response(value) => value == expected
-        case _ => false
-      }
+      receiveOne(1 second) must be equalTo expected
     }
 
     "process a search request" in {
 
       implicit val jsonReadable = Page.PageJsonReadable
 
-      val message = MediatorMessages.SearchRequest[Page](webserviceLocationStub, "Url" -> "/path")
-      val expected = ItemStubs.pagesStub.as[Seq[Page]]
+      val request = MediatorMessages.SearchRequest[Page](webserviceLocationStub, "Url" -> "/path")
+      val expected = MediatorMessages.Response(ItemStubs.pagesStub.as[Seq[Page]])
 
-      mockMediatorRef ! message
+      mockMediatorRef ! request
 
-      val result = receiveOne(FiniteDuration(5000, TimeUnit.MILLISECONDS))
-      result match {
-        case MediatorMessages.Response(value) => value == expected
-        case _ => false
-      }
+      receiveOne(1 second) must be equalTo expected
     }
 
     "process a query request" in {
@@ -106,16 +94,12 @@ with SpecificationLike {
       implicit val jsonReadable = Page.PageJsonReadable
 
       val query = Query / "Pages" %("PublicationId" -> 1, "ItemId" -> 2)
-      val message = MediatorMessages.QueryRequest[Page](webserviceLocationStub, query)
-      val expected = ItemStubs.pageStub.as[Page]
+      val request = MediatorMessages.QueryRequest[Page](webserviceLocationStub, query)
+      val expected = MediatorMessages.Response(ItemStubs.pageStub.as[Page])
 
-      mockMediatorRef ! message
+      mockMediatorRef ! request
 
-      val result = receiveOne(FiniteDuration(5000, TimeUnit.MILLISECONDS))
-      result match {
-        case MediatorMessages.Response(value) => value == expected
-        case _ => false
-      }
+      receiveOne(1 second) must be equalTo expected
     }
   }
 

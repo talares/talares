@@ -15,20 +15,19 @@
  */
 package org.talares.api
 
-import java.util.concurrent.TimeUnit
-
 import org.specs2.mutable.Specification
+import org.specs2.time.NoTimeConversions
 import org.talares.api.cache.mock.MockCaches
 import org.talares.api.mock.MockTalares
 
 import scala.concurrent.Future
-import scala.concurrent.duration.FiniteDuration
+import scala.concurrent.duration._
 
 /**
  * @author Dennis Vis
  * @since 0.1.0
  */
-class TalaresSpec extends Specification with MockCaches {
+class TalaresSpec extends Specification with NoTimeConversions with MockCaches {
 
   def pageWithComponentPresentations(app: Talares): Future[Boolean] = {
     for {
@@ -73,7 +72,7 @@ class TalaresSpec extends Specification with MockCaches {
         result1 && result2
       }
 
-      tests.await(timeout = FiniteDuration(30, TimeUnit.SECONDS))
+      tests.await(timeout = 30 seconds)
     }
 
     "use simple cache" in {
@@ -91,7 +90,7 @@ class TalaresSpec extends Specification with MockCaches {
         result1 && result2
       }
 
-      tests.await(timeout = FiniteDuration(30, TimeUnit.SECONDS))
+      tests.await(timeout = 30 seconds)
     }
 
     "use auto update cache" in {
@@ -111,7 +110,7 @@ class TalaresSpec extends Specification with MockCaches {
         result1 && result2 && result3
       }
 
-      tests.await(timeout = FiniteDuration(30, TimeUnit.SECONDS))
+      tests.await(timeout = 30 seconds)
     }
 
     "perform under load with no cache" in {
@@ -119,7 +118,7 @@ class TalaresSpec extends Specification with MockCaches {
       val talares = MockTalares()
       val test = loadTest(talares)
 
-      test.await(timeout = FiniteDuration(30, TimeUnit.SECONDS))
+      test.await(timeout = 30 seconds)
     }
 
     "perform under load with simple cache" in {
@@ -127,7 +126,7 @@ class TalaresSpec extends Specification with MockCaches {
       val talaresSimpleCache = MockTalares(mockSimpleCache)
       val test = loadTest(talaresSimpleCache)
 
-      test.await(timeout = FiniteDuration(30, TimeUnit.SECONDS))
+      test.await(timeout = 30 seconds)
     }
 
     "perform under load with auto update cache" in {
@@ -135,7 +134,7 @@ class TalaresSpec extends Specification with MockCaches {
       val talaresAutoUpdateCache = MockTalares(mockAutoUpdateCache)
       val test = loadTest(talaresAutoUpdateCache)
 
-      test.await(timeout = FiniteDuration(30, TimeUnit.SECONDS))
+      test.await(timeout = 30 seconds)
     }
 
     "get a Binary" in {
@@ -146,7 +145,7 @@ class TalaresSpec extends Specification with MockCaches {
         binary.binaryId == 123
       }
 
-      test.await(timeout = FiniteDuration(30, TimeUnit.SECONDS))
+      test.await(timeout = 30 seconds)
     }
 
     "get a BinaryContent" in {
@@ -157,7 +156,7 @@ class TalaresSpec extends Specification with MockCaches {
         bc.binaryId == 123
       }
 
-      test.await(timeout = FiniteDuration(30, TimeUnit.SECONDS))
+      test.await(timeout = 30 seconds)
     }
 
     "get a BinaryVariant" in {
@@ -168,7 +167,7 @@ class TalaresSpec extends Specification with MockCaches {
         bv.binaryId == 123
       }
 
-      test.await(timeout = FiniteDuration(30, TimeUnit.SECONDS))
+      test.await(timeout = 30 seconds)
     }
 
     "get a Component" in {
@@ -179,7 +178,7 @@ class TalaresSpec extends Specification with MockCaches {
         component.itemId == 123
       }
 
-      test.await(timeout = FiniteDuration(30, TimeUnit.SECONDS))
+      test.await(timeout = 30 seconds)
     }
 
     "get a ComponentPresentation" in {
@@ -190,7 +189,7 @@ class TalaresSpec extends Specification with MockCaches {
         cp.componentId == 123
       }
 
-      test.await(timeout = FiniteDuration(30, TimeUnit.SECONDS))
+      test.await(timeout = 30 seconds)
     }
 
     "get a CustomMeta" in {
@@ -201,7 +200,7 @@ class TalaresSpec extends Specification with MockCaches {
         cm.id == 123
       }
 
-      test.await(timeout = FiniteDuration(30, TimeUnit.SECONDS))
+      test.await(timeout = 30 seconds)
     }
 
     "get a Keyword" in {
@@ -212,7 +211,7 @@ class TalaresSpec extends Specification with MockCaches {
         keyword.taxonomyId == 123
       }
 
-      test.await(timeout = FiniteDuration(30, TimeUnit.SECONDS))
+      test.await(timeout = 30 seconds)
     }
 
     "get a Page" in {
@@ -223,7 +222,7 @@ class TalaresSpec extends Specification with MockCaches {
         page.itemId == 123
       }
 
-      test.await(timeout = FiniteDuration(30, TimeUnit.SECONDS))
+      test.await(timeout = 30 seconds)
     }
 
     "get a PageContent" in {
@@ -234,7 +233,7 @@ class TalaresSpec extends Specification with MockCaches {
         pageContent.pageId == 123
       }
 
-      test.await(timeout = FiniteDuration(30, TimeUnit.SECONDS))
+      test.await(timeout = 30 seconds)
     }
 
     "get a Publication" in {
@@ -245,7 +244,7 @@ class TalaresSpec extends Specification with MockCaches {
         publication.id == 1
       }
 
-      test.await(timeout = FiniteDuration(30, TimeUnit.SECONDS))
+      test.await(timeout = 30 seconds)
     }
 
     "get a Schema" in {
@@ -256,7 +255,7 @@ class TalaresSpec extends Specification with MockCaches {
         schema.schemaId == 123
       }
 
-      test.await(timeout = FiniteDuration(30, TimeUnit.SECONDS))
+      test.await(timeout = 30 seconds)
     }
 
     "get a StructureGroup" in {
@@ -267,7 +266,7 @@ class TalaresSpec extends Specification with MockCaches {
         sg.depth == 0
       }
 
-      test.await(timeout = FiniteDuration(30, TimeUnit.SECONDS))
+      test.await(timeout = 30 seconds)
     }
 
     "get a Template" in {
@@ -278,7 +277,7 @@ class TalaresSpec extends Specification with MockCaches {
         template.itemId == 123
       }
 
-      test.await(timeout = FiniteDuration(30, TimeUnit.SECONDS))
+      test.await(timeout = 30 seconds)
     }
   }
 }

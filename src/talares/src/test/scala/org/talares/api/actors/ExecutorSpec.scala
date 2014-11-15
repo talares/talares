@@ -15,13 +15,12 @@
  */
 package org.talares.api.actors
 
-import java.util.concurrent.TimeUnit
-
 import akka.actor.ActorSystem
 import akka.testkit.TestKit
 import com.typesafe.config.ConfigFactory
 import org.specs2.mock.Mockito
 import org.specs2.mutable.SpecificationLike
+import org.specs2.time.NoTimeConversions
 import org.talares.api.Talares
 import org.talares.api.actors.messages.{ExecutorMessages, FetcherMessages}
 import org.talares.api.actors.mock.MockExecutor
@@ -30,7 +29,7 @@ import org.talares.api.datatypes.items.stubs.ItemStubs
 import org.talares.api.datatypes.items.stubs.ItemStubs._
 import play.api.libs.json.Json
 
-import scala.concurrent.duration.FiniteDuration
+import scala.concurrent.duration._
 import scala.reflect.ClassTag
 
 /**
@@ -38,6 +37,7 @@ import scala.reflect.ClassTag
  * @since 0.1.0
  */
 class ExecutorSpec extends TestKit(ActorSystem("executor-spec", ConfigFactory.load()))
+with NoTimeConversions
 with Mockito
 with SpecificationLike {
 
@@ -59,21 +59,25 @@ with SpecificationLike {
   def mockExecutor[T](implicit classTag: ClassTag[T]) = mockExecutorRef[T].underlyingActor
 
   def failingExecutorRef[T](implicit classTag: ClassTag[T]) = MockExecutor.failingExecutorRef[T](app, testActor)
+  
+  sequential
 
   "An Executor" should {
 
     "add Json param" in {
+
       val urlWithParam = "http://www.google.com?$format=json"
       val urlWithoutParam = "http://www.google.com"
-      mockExecutor[Page].addJsonParam(urlWithoutParam) == urlWithParam
+
+      mockExecutor[Page].addJsonParam(urlWithoutParam) must be equalTo urlWithParam
     }
 
     "parse single Json result" in {
-      mockExecutor[Page].parseJsonResult(singleResult) == pageStub
+      mockExecutor[Page].parseJsonResult(singleResult) must be equalTo pageStub
     }
 
     "parse multi Json result" in {
-      mockExecutor[Page].parseJsonResult(multiResult) == pagesStub
+      mockExecutor[Page].parseJsonResult(multiResult) must be equalTo pagesStub
     }
 
     "handle task" in {
@@ -82,16 +86,15 @@ with SpecificationLike {
       val expected = ExecutorMessages.Success[Page](fetcherTaskStub, ItemStubs.pageStub)
 
       mockExecutorRef[Page] ! message
-      expected == receiveOne(FiniteDuration(5000, TimeUnit.MILLISECONDS))
+
+      receiveOne(1 second) must be equalTo expected
     }
 
     "handle failure" in {
 
       failingExecutorRef[Page] ! ExecutorMessages.Execute[Page](fetcherTaskStub, locationStub)
-      receiveOne(FiniteDuration(5000, TimeUnit.MILLISECONDS)) match {
-        case ExecutorMessages.Failure(task, throwable) => task == fetcherTaskStub
-        case _ => false
-      }
+
+      receiveOne(1 second) must beAnInstanceOf[ExecutorMessages.Failure[Page]]
     }
   }
 

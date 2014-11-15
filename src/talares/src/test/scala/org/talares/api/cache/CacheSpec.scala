@@ -24,12 +24,12 @@ class CacheSpec extends Specification with MockCaches {
 
     "get and put with simple cache" in {
       mockSimpleCache.put(key, value)
-      mockSimpleCache.get(key) == Some(value)
+      mockSimpleCache.get(key) must be equalTo Some(value)
     }
 
     "get and put with auto update cache" in {
       mockAutoUpdateCache.put(key, value)
-      mockAutoUpdateCache.get(key) == Some(value)
+      mockAutoUpdateCache.get(key) must be equalTo Some(value)
     }
   }
 }
