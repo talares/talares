@@ -74,7 +74,7 @@ class ItemSpec extends Specification {
 
   "unmarshall Keyword" in {
     (Json.fromJson[Keyword](keywordStub) match {
-      case JsSuccess(keyword, _) => keyword.isAbstract == false
+      case JsSuccess(keyword, _) => !keyword.isAbstract
       case _ => false
     }) must beEqualTo(true)
   }
