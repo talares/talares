@@ -15,13 +15,12 @@
  */
 package org.talares.api.actors
 
-import java.util.concurrent.TimeUnit
-
 import akka.actor.ActorSystem
 import akka.testkit.TestKit
 import com.typesafe.config.ConfigFactory
 import org.specs2.mock.Mockito
 import org.specs2.mutable.SpecificationLike
+import org.specs2.time.NoTimeConversions
 import org.talares.api.Talares
 import org.talares.api.actors.messages.{ExecutorMessages, FetcherMessages}
 import org.talares.api.actors.mock.MockFetcher
@@ -30,7 +29,7 @@ import org.talares.api.datatypes.items._
 import org.talares.api.datatypes.items.stubs.ItemStubs
 import org.talares.api.queries._
 
-import scala.concurrent.duration.FiniteDuration
+import scala.concurrent.duration._
 import scala.reflect.ClassTag
 
 /**
@@ -38,6 +37,7 @@ import scala.reflect.ClassTag
  * @since 0.1.0
  */
 class FetcherSpec extends TestKit(ActorSystem("fetcher-spec", ConfigFactory.load()))
+with NoTimeConversions
 with Mockito
 with SpecificationLike {
 
@@ -84,113 +84,97 @@ with SpecificationLike {
     }
 
     "create an ID query" in {
-      mockFetcher[Page].createIDQuery(Seq("PublicationId" -> 1, "ItemId" -> 2)) == idQueryStub
+      mockFetcher[Page].createIDQuery(Seq("PublicationId" -> 1, "ItemId" -> 2)) must be equalTo idQueryStub
     }
 
     "create a search query" in {
-      mockFetcher[Page].createSearchQuery(Seq("Url" -> "Foo")) == searchQueryStub
+      mockFetcher[Page].createSearchQuery(Seq("Url" -> "Foo")) must be equalTo searchQueryStub
     }
 
     "create a URL" in {
-      mockFetcher[Page].createUrl(webserviceLocationStub, idQueryStub) == idUrlStub
+      mockFetcher[Page].createUrl(webserviceLocationStub, idQueryStub) must be equalTo idUrlStub
     }
 
     "create URL task" in {
-      mockFetcher[Page].createURLTask(mockRequest, idUrlStub) == executorIDTaskStub
+      mockFetcher[Page].createURLTask(mockRequest, idUrlStub) must be equalTo executorIDTaskStub
     }
 
     "create query task" in {
-      mockFetcher[Page].createQueryTask(mockRequest, webserviceLocationStub, idQueryStub) == executorIDTaskStub
+      mockFetcher[Page].createQueryTask(
+        mockRequest, webserviceLocationStub, idQueryStub
+      ) must be equalTo executorIDTaskStub
     }
 
     "create ID task" in {
       mockFetcher[Page].createIDTask(
         mockRequest, webserviceLocationStub, "PublicationId" -> 1, "ItemId" -> 2
-      ) == executorIDTaskStub
+      ) must be equalTo executorIDTaskStub
     }
 
     "create search task" in {
-      mockFetcher[Page].createSearchTask(mockRequest, webserviceLocationStub, "Url" -> "Foo") == executorSearchTaskStub
+      mockFetcher[Page].createSearchTask(
+        mockRequest, webserviceLocationStub, "Url" -> "Foo"
+      ) must be equalTo executorSearchTaskStub
     }
 
     "fetch by URI" in {
 
-      val message = FetcherMessages.FetchByURI[Page](
+      val task = FetcherMessages.FetchByURI[Page](
         testActor, webserviceLocationStub + "/Pages(PublicationId=1,ItemId=2)"
       )
-      val expected = ItemStubs.pageStub.as[Page]
+      val expected = FetcherMessages.SingleResult(task, ItemStubs.pageStub.as[Page])
 
-      mockFetcherRef[Page] ! message
+      mockFetcherRef[Page] ! task
 
-      val result =  receiveOne(FiniteDuration(5000, TimeUnit.MILLISECONDS))
-      result match {
-        case FetcherMessages.SingleResult(task, value) => task == message && value == expected
-        case _ => false
-      }
+      receiveOne(1 second) must be equalTo expected
     }
 
     "fetch by ID" in {
 
-      val message = FetcherMessages.FetchByID[Page](
+      val task = FetcherMessages.FetchByID[Page](
         testActor, webserviceLocationStub, "PublicationId" -> 1, "ItemId" -> 2
       )
-      val expected = ItemStubs.pageStub.as[Page]
+      val expected = FetcherMessages.SingleResult(task, ItemStubs.pageStub.as[Page])
 
-      mockFetcherRef[Page] ! message
+      mockFetcherRef[Page] ! task
 
-      val result = receiveOne(FiniteDuration(5000, TimeUnit.MILLISECONDS))
-      result match {
-        case FetcherMessages.SingleResult(task, value) => task == message && value == expected
-        case _ => false
-      }
+      receiveOne(1 second) must be equalTo expected
     }
 
     "fetch by search" in {
 
-      val message = FetcherMessages.FetchBySearch[Page](
+      val task = FetcherMessages.FetchBySearch[Page](
         testActor, webserviceLocationStub, "Url" -> "/path"
       )
-      val expected = ItemStubs.pagesStub.as[Seq[Page]]
+      val expected = FetcherMessages.MultiResult(task, ItemStubs.pagesStub.as[Seq[Page]])
 
-      mockFetcherRef[Page] ! message
+      mockFetcherRef[Page] ! task
 
-      val result = receiveOne(FiniteDuration(5000, TimeUnit.MILLISECONDS))
-      result match {
-        case FetcherMessages.MultiResult(task, value) => task == message && value == expected
-        case _ => false
-      }
+      receiveOne(1 second) must be equalTo expected
     }
 
     "fetch by query" in {
 
-      val query = Query / "Pages" % ("PublicationId" -> 1, "ItemId" -> 2)
-      val message = FetcherMessages.FetchByQuery[Page](
+      val query = Query / "Pages" %("PublicationId" -> 1, "ItemId" -> 2)
+      val task = FetcherMessages.FetchByQuery[Page](
         testActor, webserviceLocationStub, query
       )
-      val expected = ItemStubs.pageStub.as[Page]
+      val expected = FetcherMessages.SingleResult(task, ItemStubs.pageStub.as[Page])
 
-      mockFetcherRef[Page] ! message
+      mockFetcherRef[Page] ! task
 
-      val result = receiveOne(FiniteDuration(5000, TimeUnit.MILLISECONDS))
-      result match {
-        case FetcherMessages.SingleResult(task, value) => task == message && value == expected
-        case _ => false
-      }
+      receiveOne(1 second) must be equalTo expected
     }
 
     "handle failure" in {
 
-      val message = FetcherMessages.FetchByID[Page](
+      val task = FetcherMessages.FetchByID[Page](
         testActor, webserviceLocationStub, "PublicationId" -> 1, "ItemId" -> 2
       )
 
-      failingFetcherRef[Page] ! message
+      failingFetcherRef[Page] ! task
 
-      val result = receiveOne(FiniteDuration(5000, TimeUnit.MILLISECONDS))
-      result match {
-        case FetcherMessages.Failure(task, throwable) => task == message
-        case _ => false
-      }
+      receiveOne(1 second) must beAnInstanceOf[FetcherMessages.Failure[Page]]
     }
   }
 
