@@ -1,12 +1,12 @@
 language: scala
 jdk:
-  - oraclejdk8
-  - oraclejdk7
+- oraclejdk8
+- oraclejdk7
 scala:
-  - 2.11.4
-  - 2.10.4
+- 2.11.4
+- 2.10.4
 env:
   global:
-  - secure: "HFoy5/NdvRoZvm/tlxwezhxs2eQb+/qZ2TriOppbBgbZs1QETt4uxrCeslyz88M3+WItPwFKmlHxMoWW4J7ibJ/O78zVHJ2lNq2adFy3wYDMdEvxnJjGvKRyPtnCuCplFHvn/s+U37bsMwtf3F4olWcSYg/BrXoTBB+A7trGGmc="
+    secure: DA34b4EK46MXK4uOozXuAiMOTo+I3nZQ98KBAwOST/5fouqhTEM1w9xm04jvvoEUtuIwmN1tlEi+5aaRiECqzYOb2EClCschHB+MJ513xW53Bu81wzgFCPVUNBtPaTIqxLqVMVTHV+CSnRj+kT+RRfqtBeWV1kPRkOAfG49Gboo=
 after_success:
 - .scripts/publish-documentation.sh
