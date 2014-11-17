@@ -91,13 +91,3 @@ publishArtifact in Test := false
 pomIncludeRepository := { _ => false}
 
 sonatypeSettings
-
-git.remoteRepo := "git@github.com:talares/talares.git"
-
-site.settings
-
-site.includeScaladoc()
-
-site.jekyllSupport()
-
-ghpages.settings
