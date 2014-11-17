@@ -8,4 +8,4 @@ scala:
 secure:
   "HFoy5/NdvRoZvm/tlxwezhxs2eQb+/qZ2TriOppbBgbZs1QETt4uxrCeslyz88M3+WItPwFKmlHxMoWW4J7ibJ/O78zVHJ2lNq2adFy3wYDMdEvxnJjGvKRyPtnCuCplFHvn/s+U37bsMwtf3F4olWcSYg/BrXoTBB+A7trGGmc="
 after_success:
-  publish-documentation.sh
+  ./publish-documentation.sh
