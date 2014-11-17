@@ -8,8 +8,8 @@ if [ "$TRAVIS_REPO_SLUG" == "talares/talares" ] && [ "$TRAVIS_SCALA_VERSION" == 
   cp -R src/talares/target-java/scala-2.11/api $HOME/scaladoc-latest
 
   cd $HOME
-  git config --global user.email "travis@travis-ci.org"
-  git config --global user.name "travis-ci"
+  git config --global user.email ${GH_EMAIL}
+  git config --global user.name ${GH_NAME}
   git clone --quiet --branch=gh-pages https://${GH_TOKEN}@github.com/talares/talares.github.io gh-pages > /dev/null
 
   cd gh-pages
