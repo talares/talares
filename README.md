@@ -5,7 +5,7 @@ Scala and Java projects.
 
 ## Documentation
 
-The documentation can be found at the project's website: http://talares.github.io/talares.
+The documentation can be found at the project's website: http://www.talares.org/.
 
 ## License
 
