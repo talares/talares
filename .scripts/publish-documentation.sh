@@ -1,6 +1,6 @@
 #!/bin/sh
 
-if [ "$TRAVIS_REPO_SLUG" == "talares/talares" ] && [ "$TRAVIS_SCALA_VERSION" == "2.11"* ] && [ "$TRAVIS_JDK_VERSION" == "oraclejdk8" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ] && [ "$TRAVIS_BRANCH" == "master" ]; then
+if [ "$TRAVIS_REPO_SLUG" == "talares/talares" ] && [[ "$TRAVIS_SCALA_VERSION" == "2.11"* ]] && [ "$TRAVIS_JDK_VERSION" == "oraclejdk8" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ] && [ "$TRAVIS_BRANCH" == "master" ]; then
 
   echo -e "Publishing API documentation...\n"
 
