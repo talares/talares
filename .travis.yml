@@ -9,4 +9,4 @@ env:
   global:
     secure: DA34b4EK46MXK4uOozXuAiMOTo+I3nZQ98KBAwOST/5fouqhTEM1w9xm04jvvoEUtuIwmN1tlEi+5aaRiECqzYOb2EClCschHB+MJ513xW53Bu81wzgFCPVUNBtPaTIqxLqVMVTHV+CSnRj+kT+RRfqtBeWV1kPRkOAfG49Gboo=
 after_success:
-- .scripts/publish-documentation.sh
+- bash .scripts/publish-documentation.sh
