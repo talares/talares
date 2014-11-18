@@ -4,8 +4,8 @@ if [ "$TRAVIS_REPO_SLUG" == "talares/talares" ] && [[ "$TRAVIS_SCALA_VERSION" ==
 
   echo -e "Publishing API documentation...\n"
 
-  cp -R ${TRAVIS_BUILD_DIR}/target/scala-2.11/api $HOME/scaladoc-latest
-  cp -R ${TRAVIS_BUILD_DIR}/target-java/scala-2.11/api $HOME/javadoc-latest
+  cp -R ${TRAVIS_BUILD_DIR}/src/talares/target/scala-2.11/api $HOME/scaladoc-latest
+  cp -R ${TRAVIS_BUILD_DIR}/src/talares-java/target/scala-2.11/api $HOME/javadoc-latest
 
   cd $HOME
   git config --global user.email ${GH_EMAIL}
