@@ -30,16 +30,16 @@ import static org.talares.utils.Utils.await;
  * Example Json:
  * <pre>
  *  {
- *    "__metadata": {
- *      "uri": "http://127.0.0.1:8080/cd_webservice/odata.svc/Binaries(BinaryId=123,PublicationId=1)",
- *      "type": "Tridion.ContentDelivery.Binary"
+ *    &quot;__metadata&quot;: {
+ *      &quot;uri&quot;: &quot;http://127.0.0.1:8080/cd_webservice/odata.svc/Binaries(BinaryId=123,PublicationId=1)&quot;,
+ *      &quot;type&quot;: &quot;Tridion.ContentDelivery.Binary&quot;
  *    },
- *    "BinaryId": 123,
- *    "PublicationId": 1,
- *    "Type": "application/vnd.ms-fontobject",
- *    "BinaryVariants": {
- *      "__deferred": {
- *        "uri": "http://127.0.0.1:8080/cd_webservice/odata.svc/Binaries(BinaryId=123,PublicationId=1)/BinaryVariants"
+ *    &quot;BinaryId&quot;: 123,
+ *    &quot;PublicationId&quot;: 1,
+ *    &quot;Type&quot;: &quot;application/vnd.ms-fontobject&quot;,
+ *    &quot;BinaryVariants&quot;: {
+ *      &quot;__deferred&quot;: {
+ *        &quot;uri&quot;: &quot;http://127.0.0.1:8080/cd_webservice/odata.svc/Binaries(BinaryId=123,PublicationId=1)/BinaryVariants&quot;
  *      }
  *    }
  *  }
@@ -88,7 +88,7 @@ public class Binary extends Item {
    *
    * @param timeout the timeout in which the result should be present
    * @return a BinaryVariant
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final List<BinaryVariant> getBinaryVariants_(long timeout) throws TalaresException {
     return await(getBinaryVariants(), timeout);
@@ -98,7 +98,7 @@ public class Binary extends Item {
    * <b>BLOCKING</b>
    *
    * @return a BinaryVariant
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final List<BinaryVariant> getBinaryVariants_() throws TalaresException {
     return getBinaryVariants_(getApi().settings().timeout());

@@ -28,17 +28,17 @@ import static org.talares.utils.Utils.await;
  * Example Json:
  * <pre>
  *  {
- *    "__metadata": {
- *      "uri": "http://127.0.0.1:8080/cd_webservice/odata.svc/PageContents(PageId=123,PublicationId=1)",
- *      "type": "Tridion.ContentDelivery.PageContent"
+ *    &quot;__metadata&quot;: {
+ *      &quot;uri&quot;: &quot;http://127.0.0.1:8080/cd_webservice/odata.svc/PageContents(PageId=123,PublicationId=1)&quot;,
+ *      &quot;type&quot;: &quot;Tridion.ContentDelivery.PageContent&quot;
  *    },
- *    "CharSet": "UTF8",
- *    "Content": "<h1>Some content</h1>",
- *    "PageId": 123,
- *    "PublicationId": 1,
- *    "Page": {
- *      "__deferred": {
- *        "uri": "http://127.0.0.1:8080/cd_webservice/odata.svc/PageContents(PageId=123,PublicationId=1)/Page"
+ *    &quot;CharSet&quot;: &quot;UTF8&quot;,
+ *    &quot;Content&quot;: &quot;&lt;h1&gt;Some content&lt;/h1&gt;&quot;,
+ *    &quot;PageId&quot;: 123,
+ *    &quot;PublicationId&quot;: 1,
+ *    &quot;Page&quot;: {
+ *      &quot;__deferred&quot;: {
+ *        &quot;uri&quot;: &quot;http://127.0.0.1:8080/cd_webservice/odata.svc/PageContents(PageId=123,PublicationId=1)/Page&quot;
  *      }
  *    }
  *  }
@@ -93,7 +93,7 @@ public class PageContent extends Item {
    *
    * @param timeout the timeout in which the result should be present
    * @return a Page
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final Page getPage_(final long timeout) throws TalaresException {
     return await(getPage(), timeout);
@@ -103,7 +103,7 @@ public class PageContent extends Item {
    * <b>BLOCKING</b>
    *
    * @return a Page
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final Page getPage_() throws TalaresException {
     return getPage_(getApi().settings().timeout());

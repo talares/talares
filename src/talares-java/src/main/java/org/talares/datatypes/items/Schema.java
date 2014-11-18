@@ -30,16 +30,16 @@ import static org.talares.utils.Utils.await;
  * Example Json:
  * <pre>
  *  {
- *    "__metadata": {
- *      "uri": "http://127.0.0.1:8080/cd_webservice/odata.svc/Schemas(SchemaId=123,PublicationId=1)",
- *      "type": "Tridion.ContentDelivery.Schema"
+ *    &quot;__metadata&quot;: {
+ *      &quot;uri&quot;: &quot;http://127.0.0.1:8080/cd_webservice/odata.svc/Schemas(SchemaId=123,PublicationId=1)&quot;,
+ *      &quot;type&quot;: &quot;Tridion.ContentDelivery.Schema&quot;
  *    },
- *    "PublicationId": 1,
- *    "SchemaId": 123,
- *    "Title": "A title",
- *    "Components": {
- *      "__deferred": {
- *        "uri": "http://127.0.0.1:8080/cd_webservice/odata.svc/Schemas(SchemaId=123,PublicationId=1)/Components"
+ *    &quot;PublicationId&quot;: 1,
+ *    &quot;SchemaId&quot;: 123,
+ *    &quot;Title&quot;: &quot;A title&quot;,
+ *    &quot;Components&quot;: {
+ *      &quot;__deferred&quot;: {
+ *        &quot;uri&quot;: &quot;http://127.0.0.1:8080/cd_webservice/odata.svc/Schemas(SchemaId=123,PublicationId=1)/Components&quot;
  *      }
  *    }
  *  }
@@ -86,7 +86,7 @@ public class Schema extends Item {
    *
    * @param timeout the timeout in which the result should be present
    * @return a List of Component's
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final List<Component> getComponents_(long timeout) throws TalaresException {
     return await(getComponents().getValue(), timeout);
@@ -96,7 +96,7 @@ public class Schema extends Item {
    * <b>BLOCKING</b>
    *
    * @return a List of Component's
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final List<Component> getComponents_() throws TalaresException {
     return getComponents_(getApi().settings().timeout());

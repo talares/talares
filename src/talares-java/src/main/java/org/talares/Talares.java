@@ -47,11 +47,11 @@ import static org.talares.utils.Utils.await;
 
 /**
  * Class holding the main client facing API.
- * <p/>
+ * <p>
  * An instance of this class should be created to gain access to the API.
  * A cache strategy should be decided upon and a corresponding instance of a subclass of {@link org.talares.cache.Cache}
  * should be provided to the constructor of this class.
- * <p/>
+ * <p>
  * Example:
  * <pre>
  * import org.talares.Talares;
@@ -59,7 +59,7 @@ import static org.talares.utils.Utils.await;
  * import play.libs.F;
  *
  * Talares talares = new Talares(cache);
- * F.Promise<Page> pagePromise = talares.getPage(1, 2);
+ * F.Promise&amp;lt;Page&amp;gt; pagePromise = talares.getPage(1, 2);
  * </pre>
  *
  * @author Dennis Vis
@@ -150,14 +150,14 @@ public class Talares {
 
   /**
    * <b>BLOCKING</b>
-   * <p/>
+   * <p>
    * Get a {@link Binary} by it's publication ID and binary ID.
    *
    * @param publicationId the ID of the publication the desired {@link Binary} belongs to
    * @param binaryId      the ID of the desired {@link Binary}
    * @param timeout       the timeout in milliseconds within which the {@link Binary} should be present
    * @return a {@link Binary}
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final Binary getBinary_(final int publicationId,
                                  final int binaryId,
@@ -167,13 +167,13 @@ public class Talares {
 
   /**
    * <b>BLOCKING</b>
-   * <p/>
+   * <p>
    * Get a {@link Binary} by it's publication ID and binary ID.
    *
    * @param publicationId the ID of the publication the desired {@link Binary} belongs to
    * @param binaryId      the ID of the desired {@link Binary}
    * @return a {@link Binary}
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final Binary getBinary_(final int publicationId, final int binaryId) throws TalaresException {
     return getBinary_(publicationId, binaryId, defaultTimeout);
@@ -195,7 +195,7 @@ public class Talares {
 
   /**
    * <b>BLOCKING</b>
-   * <p/>
+   * <p>
    * Get a {@link BinaryContent} by it's publication ID and binary ID.
    *
    * @param publicationId the ID of the publication the desired {@link BinaryContent} belongs to
@@ -203,7 +203,7 @@ public class Talares {
    * @param variantId     the variant ID of the desired {@link BinaryContent}
    * @param timeout       the timeout in milliseconds within which the {@link BinaryContent} should be present
    * @return a {@link BinaryContent}
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final BinaryContent getBinaryContent_(final int publicationId,
                                                final int binaryId,
@@ -214,14 +214,14 @@ public class Talares {
 
   /**
    * <b>BLOCKING</b>
-   * <p/>
+   * <p>
    * Get a {@link BinaryContent} by it's publication ID, binary ID and variant ID.
    *
    * @param publicationId the ID of the publication the desired {@link BinaryContent} belongs to
    * @param binaryId      the ID of the desired {@link BinaryContent}
    * @param variantId     the variant ID of the desired {@link BinaryContent}
    * @return a {@link BinaryContent}
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final BinaryContent getBinaryContent_(final int publicationId,
                                                final int binaryId,
@@ -242,14 +242,14 @@ public class Talares {
 
   /**
    * <b>BLOCKING</b>
-   * <p/>
+   * <p>
    * Get a {@link BinaryVariant} by it's publication ID and binary ID.
    *
    * @param publicationId the ID of the publication the desired {@link BinaryVariant} belongs to
    * @param binaryId      the ID of the desired {@link BinaryVariant}
    * @param timeout       the timeout in milliseconds within which the {@link BinaryVariant} should be present
    * @return a {@link BinaryVariant}
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final BinaryVariant getBinaryVariant_(final int publicationId,
                                                final int binaryId,
@@ -259,13 +259,13 @@ public class Talares {
 
   /**
    * <b>BLOCKING</b>
-   * <p/>
+   * <p>
    * Get a {@link BinaryVariant} by it's publication ID and binary ID.
    *
    * @param publicationId the ID of the publication the desired {@link BinaryVariant} belongs to
    * @param binaryId      the ID of the desired {@link BinaryVariant}
    * @return a {@link BinaryVariant}
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final BinaryVariant getBinaryVariant_(final int publicationId, final int binaryId) throws TalaresException {
     return getBinaryVariant_(publicationId, binaryId, defaultTimeout);
@@ -284,14 +284,14 @@ public class Talares {
 
   /**
    * <b>BLOCKING</b>
-   * <p/>
+   * <p>
    * Get a {@link Component} by it's publication ID and item ID.
    *
    * @param publicationId the ID of the publication the desired {@link Component} belongs to
    * @param itemId        the item ID of the desired {@link Component}
    * @param timeout       the timeout in milliseconds within which the {@link Component} should be present
    * @return a {@link Component}
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final Component getComponent_(final int publicationId,
                                        final int itemId,
@@ -301,13 +301,13 @@ public class Talares {
 
   /**
    * <b>BLOCKING</b>
-   * <p/>
+   * <p>
    * Get a {@link Component} by it's publication ID and item ID.
    *
    * @param publicationId the ID of the publication the desired {@link Component} belongs to
    * @param itemId        the item ID of the desired {@link Component}
    * @return a {@link Component}
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final Component getComponent_(final int publicationId, final int itemId) throws TalaresException {
     return getComponent_(publicationId, itemId, defaultTimeout);
@@ -329,7 +329,7 @@ public class Talares {
 
   /**
    * <b>BLOCKING</b>
-   * <p/>
+   * <p>
    * Get a {@link ComponentPresentation} by it's publication ID, component ID and templateId ID.
    *
    * @param publicationId the ID of the publication the desired {@link ComponentPresentation} belongs to
@@ -337,7 +337,7 @@ public class Talares {
    * @param templateId    the template ID of the desired {@link ComponentPresentation}
    * @param timeout       the timeout in milliseconds within which the {@link ComponentPresentation} should be present
    * @return a {@link ComponentPresentation}
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final ComponentPresentation getComponentPresentation_(final int publicationId,
                                                                final int componentId,
@@ -348,14 +348,14 @@ public class Talares {
 
   /**
    * <b>BLOCKING</b>
-   * <p/>
+   * <p>
    * Get a {@link ComponentPresentation} by it's publication ID, component ID and templateId ID.
    *
    * @param publicationId the ID of the publication the desired {@link ComponentPresentation} belongs to
    * @param componentId   the component ID of the desired {@link ComponentPresentation}
    * @param templateId    the template ID of the desired {@link ComponentPresentation}
    * @return a {@link ComponentPresentation}
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final ComponentPresentation getComponentPresentation_(final int publicationId,
                                                                final int componentId,
@@ -375,13 +375,13 @@ public class Talares {
 
   /**
    * <b>BLOCKING</b>
-   * <p/>
+   * <p>
    * Get a {@link CustomMeta} by it's ID.
    *
    * @param id      the ID of the desired {@link CustomMeta}
    * @param timeout the timeout in milliseconds within which the {@link CustomMeta} should be present
    * @return a {@link CustomMeta}
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final CustomMeta getCustomMeta_(final int id, final long timeout) throws TalaresException {
     return await(getCustomMeta(id), timeout);
@@ -389,12 +389,12 @@ public class Talares {
 
   /**
    * <b>BLOCKING</b>
-   * <p/>
+   * <p>
    * Get a {@link CustomMeta} by it's ID.
    *
    * @param id the ID of the desired {@link CustomMeta}
    * @return a {@link CustomMeta}
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final CustomMeta getCustomMeta_(final int id) throws TalaresException {
     return getCustomMeta_(id, defaultTimeout);
@@ -414,7 +414,7 @@ public class Talares {
 
   /**
    * <b>BLOCKING</b>
-   * <p/>
+   * <p>
    * Get a {@link Keyword} by it's ID, publication ID and taxonomy ID.
    *
    * @param publicationId the ID of the publication the desired {@link Keyword} belongs to
@@ -422,7 +422,7 @@ public class Talares {
    * @param taxonomyId    the taxonomy ID of the desired {@link Keyword}
    * @param timeout       the timeout in milliseconds within which the {@link Keyword} should be present
    * @return a {@link Keyword}
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final Keyword getKeyword_(final int publicationId,
                                    final int id,
@@ -433,14 +433,14 @@ public class Talares {
 
   /**
    * <b>BLOCKING</b>
-   * <p/>
+   * <p>
    * Get a {@link Keyword} by it's ID, publication ID and taxonomy ID.
    *
    * @param publicationId the ID of the publication the desired {@link Keyword} belongs to
    * @param id            the ID of the desired {@link Keyword}
    * @param taxonomyId    the taxonomy ID of the desired {@link Keyword}
    * @return a {@link Keyword}
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final Keyword getKeyword_(final int publicationId,
                                    final int id,
@@ -461,14 +461,14 @@ public class Talares {
 
   /**
    * <b>BLOCKING</b>
-   * <p/>
+   * <p>
    * Get a {@link Page} by it's publication ID and item ID.
    *
    * @param publicationId the ID of the publication the desired {@link Page} belongs to
    * @param itemId        the item ID of the desired {@link Page}
    * @param timeout       the timeout in milliseconds within which the {@link Page} should be present
    * @return a {@link Page}
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final Page getPage_(final int publicationId, final int itemId, final long timeout) throws TalaresException {
     return await(getPage(publicationId, itemId), timeout);
@@ -476,13 +476,13 @@ public class Talares {
 
   /**
    * <b>BLOCKING</b>
-   * <p/>
+   * <p>
    * Get a {@link Page} by it's publication ID and item ID.
    *
    * @param publicationId the ID of the publication the desired {@link Page} belongs to
    * @param itemId        the item ID of the desired {@link Page}
    * @return a {@link Page}
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final Page getPage_(final int publicationId, final int itemId) throws TalaresException {
     return getPage_(publicationId, itemId, defaultTimeout);
@@ -500,13 +500,13 @@ public class Talares {
 
   /**
    * <b>BLOCKING</b>
-   * <p/>
+   * <p>
    * Get a {@link Page} by it's URL.
    *
    * @param url     the URL of the page within Tridion
    * @param timeout the timeout in milliseconds within which the {@link Page} should be present
    * @return a {@link Page}
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final List<Page> getPage_(final String url, final long timeout) throws TalaresException {
     return await(getPage(url), timeout);
@@ -514,12 +514,12 @@ public class Talares {
 
   /**
    * <b>BLOCKING</b>
-   * <p/>
+   * <p>
    * Get a {@link Page} by it's URL.
    *
    * @param url the URL of the page within Tridion
    * @return a {@link Page}
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final List<Page> getPage_(final String url) throws TalaresException {
     return getPage_(url, api.settings().timeout());
@@ -539,14 +539,14 @@ public class Talares {
 
   /**
    * <b>BLOCKING</b>
-   * <p/>
+   * <p>
    * Get a {@link PageContent} by it's publication ID and page ID.
    *
    * @param publicationId the ID of the publication the desired {@link PageContent} belongs to
    * @param pageId        the page ID of the desired {@link PageContent}
    * @param timeout       the timeout in milliseconds within which the {@link PageContent} should be present
    * @return a {@link PageContent}
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final PageContent getPageContent_(final int publicationId,
                                            final int pageId,
@@ -556,13 +556,13 @@ public class Talares {
 
   /**
    * <b>BLOCKING</b>
-   * <p/>
+   * <p>
    * Get a {@link PageContent} by it's publication ID and page ID.
    *
    * @param publicationId the ID of the publication the desired {@link PageContent} belongs to
    * @param pageId        the page ID of the desired {@link PageContent}
    * @return a {@link PageContent}
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final PageContent getPageContent_(final int publicationId,
                                            final int pageId) throws TalaresException {
@@ -581,13 +581,13 @@ public class Talares {
 
   /**
    * <b>BLOCKING</b>
-   * <p/>
+   * <p>
    * Get a {@link Publication} by it's ID.
    *
    * @param id      the ID of the desired {@link Publication}
    * @param timeout the timeout in milliseconds within which the {@link Publication} should be present
    * @return a {@link Publication}
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final Publication getPublication_(final int id, final long timeout) throws TalaresException {
     return await(getPublication(id), timeout);
@@ -595,12 +595,12 @@ public class Talares {
 
   /**
    * <b>BLOCKING</b>
-   * <p/>
+   * <p>
    * Get a {@link Publication} by it's ID.
    *
    * @param id the ID of the desired {@link Publication}
    * @return a {@link Publication}
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final Publication getPublication_(final int id) throws TalaresException {
     return getPublication_(id, defaultTimeout);
@@ -619,14 +619,14 @@ public class Talares {
 
   /**
    * <b>BLOCKING</b>
-   * <p/>
+   * <p>
    * Get a {@link Schema} by it's publication ID and schema ID.
    *
    * @param publicationId the ID of the publication the desired {@link Schema} belongs to
    * @param schemaId      the schema ID of the desired {@link Schema}
    * @param timeout       the timeout in milliseconds within which the {@link Schema} should be present
    * @return a {@link Schema}
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final Schema getSchema_(final int publicationId,
                                  final int schemaId,
@@ -636,13 +636,13 @@ public class Talares {
 
   /**
    * <b>BLOCKING</b>
-   * <p/>
+   * <p>
    * Get a {@link Schema} by it's publication ID and schema ID.
    *
    * @param publicationId the ID of the publication the desired {@link Schema} belongs to
    * @param schemaId      the schema ID of the desired {@link Schema}
    * @return a {@link Schema}
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final Schema getSchema_(final int publicationId, final int schemaId) throws TalaresException {
     return getSchema_(publicationId, schemaId, defaultTimeout);
@@ -662,14 +662,14 @@ public class Talares {
 
   /**
    * <b>BLOCKING</b>
-   * <p/>
+   * <p>
    * Get a {@link StructureGroup} by it's ID and publication ID.
    *
    * @param publicationId the ID of the publication the desired {@link StructureGroup} belongs to
    * @param id            the ID of the desired {@link StructureGroup}
    * @param timeout       the timeout in milliseconds within which the {@link StructureGroup} should be present
    * @return a {@link StructureGroup}
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final StructureGroup getStructureGroup_(final int publicationId,
                                                  final int id,
@@ -679,13 +679,13 @@ public class Talares {
 
   /**
    * <b>BLOCKING</b>
-   * <p/>
+   * <p>
    * Get a {@link StructureGroup} by it's ID and publication ID.
    *
    * @param publicationId the ID of the publication the desired {@link StructureGroup} belongs to
    * @param id            the ID of the desired {@link StructureGroup}
    * @return a {@link StructureGroup}
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final StructureGroup getStructureGroup_(final int publicationId, final int id) throws TalaresException {
     return getStructureGroup_(publicationId, id, defaultTimeout);
@@ -704,14 +704,14 @@ public class Talares {
 
   /**
    * <b>BLOCKING</b>
-   * <p/>
+   * <p>
    * Get a {@link Template} by it's publication ID and item ID.
    *
    * @param publicationId the ID of the publication the desired {@link Template} belongs to
    * @param itemId        the item ID of the desired {@link Template}
    * @param timeout       the timeout in milliseconds within which the {@link Template} should be present
    * @return a {@link Template}
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final Template getTemplate_(final int publicationId,
                                      final int itemId,
@@ -721,13 +721,13 @@ public class Talares {
 
   /**
    * <b>BLOCKING</b>
-   * <p/>
+   * <p>
    * Get a {@link Template} by it's publication ID and item ID.
    *
    * @param publicationId the ID of the publication the desired {@link Template} belongs to
    * @param itemId        the item ID of the desired {@link Template}
    * @return a {@link Template}
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final Template getTemplate_(final int publicationId, final int itemId) throws TalaresException {
     return getTemplate_(publicationId, itemId, defaultTimeout);

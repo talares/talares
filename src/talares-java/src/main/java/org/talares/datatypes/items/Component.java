@@ -24,45 +24,45 @@ import static org.talares.utils.Utils.await;
 
 /**
  * A Java representation of a Component content type.
- * <p/>
+ * <p>
  * Example Json:
  * <pre>
  *   {
- *    "__metadata": {
- *      "uri": "http://127.0.0.1:8080/cd_webservice/odata.svc/Components(ItemId=123,PublicationId=1)",
- *      "type": "Tridion.ContentDelivery.Component"
+ *    &quot;__metadata&quot;: {
+ *      &quot;uri&quot;: &quot;http://127.0.0.1:8080/cd_webservice/odata.svc/Components(ItemId=123,PublicationId=1)&quot;,
+ *      &quot;type&quot;: &quot;Tridion.ContentDelivery.Component&quot;
  *    },
- *    "Author": "User",
- *    "CreationDate": "/Date(1362655474000+60)/",
- *    "InitialPublishDate": "/Date(1374139562000+120)/",
- *    "Multimedia": false,
- *    "ItemId": 123,
- *    "LastPublishDate": "/Date(1374139562113+120)/",
- *    "MajorVersion": 1,
- *    "MinorVersion": 2,
- *    "ModificationDate": "/Date(1374139455000+120)/",
- *    "OwningPublication": 1,
- *    "PublicationId": 1,
- *    "SchemaId": 123,
- *    "Title": "component title",
- *    "Schema": {
- *      "__deferred": {
- *         "uri": "http://127.0.0.1:8080/cd_webservice/odata.svc/Components(ItemId=123,PublicationId=1)/Schema"
+ *    &quot;Author&quot;: &quot;User&quot;,
+ *    &quot;CreationDate&quot;: &quot;/Date(1362655474000+60)/&quot;,
+ *    &quot;InitialPublishDate&quot;: &quot;/Date(1374139562000+120)/&quot;,
+ *    &quot;Multimedia&quot;: false,
+ *    &quot;ItemId&quot;: 123,
+ *    &quot;LastPublishDate&quot;: &quot;/Date(1374139562113+120)/&quot;,
+ *    &quot;MajorVersion&quot;: 1,
+ *    &quot;MinorVersion&quot;: 2,
+ *    &quot;ModificationDate&quot;: &quot;/Date(1374139455000+120)/&quot;,
+ *    &quot;OwningPublication&quot;: 1,
+ *    &quot;PublicationId&quot;: 1,
+ *    &quot;SchemaId&quot;: 123,
+ *    &quot;Title&quot;: &quot;component title&quot;,
+ *    &quot;Schema&quot;: {
+ *      &quot;__deferred&quot;: {
+ *         &quot;uri&quot;: &quot;http://127.0.0.1:8080/cd_webservice/odata.svc/Components(ItemId=123,PublicationId=1)/Schema&quot;
  *      }
  *    },
- *    "ComponentPresentations": {
- *      "__deferred": {
- *        "uri": "http://127.0.0.1:8080/cd_webservice/odata.svc/Components(ItemId=123,PublicationId=1)/ComponentPresentations"
+ *    &quot;ComponentPresentations&quot;: {
+ *      &quot;__deferred&quot;: {
+ *        &quot;uri&quot;: &quot;http://127.0.0.1:8080/cd_webservice/odata.svc/Components(ItemId=123,PublicationId=1)/ComponentPresentations&quot;
  *      }
  *    },
- *    "Keywords": {
- *      "__deferred": {
- *        "uri": "http://127.0.0.1:8080/cd_webservice/odata.svc/Components(ItemId=123,PublicationId=1)/Keywords"
+ *    &quot;Keywords&quot;: {
+ *      &quot;__deferred&quot;: {
+ *        &quot;uri&quot;: &quot;http://127.0.0.1:8080/cd_webservice/odata.svc/Components(ItemId=123,PublicationId=1)/Keywords&quot;
  *      }
  *    },
- *    "CustomMetas": {
- *      "__deferred": {
- *        "uri": "http://127.0.0.1:8080/cd_webservice/odata.svc/Components(ItemId=123,PublicationId=1)/CustomMetas"
+ *    &quot;CustomMetas&quot;: {
+ *      &quot;__deferred&quot;: {
+ *        &quot;uri&quot;: &quot;http://127.0.0.1:8080/cd_webservice/odata.svc/Components(ItemId=123,PublicationId=1)/CustomMetas&quot;
  *      }
  *    }
  *  }
@@ -109,7 +109,7 @@ public class Component extends Taxonomised {
    *
    * @param timeout the timeout in which the result should be present
    * @return a Schema
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final Schema getSchema_(long timeout) throws TalaresException {
     return await(getSchema().getValue(), timeout);
@@ -119,7 +119,7 @@ public class Component extends Taxonomised {
    * <b>BLOCKING</b>
    *
    * @return a Schema
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final Schema getSchema_() throws TalaresException {
     return getSchema_(getApi().settings().timeout());

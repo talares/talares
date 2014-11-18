@@ -50,7 +50,7 @@ public abstract class Taxonomised extends ComponentPresentationsHolder {
    *
    * @param timeout the timeout in which the result should be present
    * @return a List of Keyword's
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final List<Keyword> getKeywords_(final long timeout) throws TalaresException {
     return await(getKeywords(), timeout);
@@ -60,7 +60,7 @@ public abstract class Taxonomised extends ComponentPresentationsHolder {
    * <b>BLOCKING</b>
    *
    * @return a List of Keyword's
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final List<Keyword> getKeywords_() throws TalaresException {
     return getKeywords_(getApi().settings().timeout());
@@ -75,7 +75,7 @@ public abstract class Taxonomised extends ComponentPresentationsHolder {
    *
    * @param timeout the timeout in which the result should be present
    * @return a List of CustomMeta's
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final List<CustomMeta> getCustomMetas_(final long timeout) throws TalaresException {
     return await(getCustomMetas(), timeout);
@@ -85,7 +85,7 @@ public abstract class Taxonomised extends ComponentPresentationsHolder {
    * <b>BLOCKING</b>
    *
    * @return a List of CustomMeta's
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final List<CustomMeta> getCustomMetas_() throws TalaresException {
     return getCustomMetas_(getApi().settings().timeout());

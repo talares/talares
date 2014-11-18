@@ -50,7 +50,7 @@ public abstract class ComponentPresentationsHolder extends PublishedItem {
    *
    * @param timeout the timeout in which the result should be present
    * @return a List of ComponentPresentation's
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final List<ComponentPresentation> getComponentPresentations_(final long timeout) throws TalaresException {
     return await(getComponentPresentations(), timeout);
@@ -60,7 +60,7 @@ public abstract class ComponentPresentationsHolder extends PublishedItem {
    * <b>BLOCKING</b>
    *
    * @return a List of ComponentPresentation's
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final List<ComponentPresentation> getComponentPresentations_() throws TalaresException {
     return getComponentPresentations_(getApi().settings().timeout());

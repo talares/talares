@@ -24,26 +24,26 @@ import play.libs.F;
  * Example Json:
  * <pre>
  *  {
- *    "__metadata": {
- *      "uri": "http://127.0.0.1:8080/cd_webservice/odata.svc/Templates(PublicationId=1,ItemId=123)",
- *      "type": "Tridion.ContentDelivery.Template"
+ *    &quot;__metadata&quot;: {
+ *      &quot;uri&quot;: &quot;http://127.0.0.1:8080/cd_webservice/odata.svc/Templates(PublicationId=1,ItemId=123)&quot;,
+ *      &quot;type&quot;: &quot;Tridion.ContentDelivery.Template&quot;
  *    },
- *    "Author": "User",
- *    "CreationDate": "/Date(1399546761343+120)/",
- *    "InitialPublishDate": "/Date(1399546761343+120)/",
- *    "ItemId": 123,
- *    "LastPublishDate": "/Date(1399546761343+120)/",
- *    "MajorVersion": 1,
- *    "MinorVersion": 2,
- *    "ModificationDate": "/Date(1399546761343+120)/",
- *    "OutputFormat": "HTML Fragment",
- *    "OwningPublication": 0,
- *    "PublicationId": 1,
- *    "TemplatePriority": 200,
- *    "Title": "A title",
- *    "ComponentPresentations": {
- *      "__deferred": {
- *        "uri": "http://127.0.0.1:8080/cd_webservice/odata.svc/Templates(PublicationId=1,ItemId=123)/ComponentPresentations"
+ *    &quot;Author&quot;: &quot;User&quot;,
+ *    &quot;CreationDate&quot;: &quot;/Date(1399546761343+120)/&quot;,
+ *    &quot;InitialPublishDate&quot;: &quot;/Date(1399546761343+120)/&quot;,
+ *    &quot;ItemId&quot;: 123,
+ *    &quot;LastPublishDate&quot;: &quot;/Date(1399546761343+120)/&quot;,
+ *    &quot;MajorVersion&quot;: 1,
+ *    &quot;MinorVersion&quot;: 2,
+ *    &quot;ModificationDate&quot;: &quot;/Date(1399546761343+120)/&quot;,
+ *    &quot;OutputFormat&quot;: &quot;HTML Fragment&quot;,
+ *    &quot;OwningPublication&quot;: 0,
+ *    &quot;PublicationId&quot;: 1,
+ *    &quot;TemplatePriority&quot;: 200,
+ *    &quot;Title&quot;: &quot;A title&quot;,
+ *    &quot;ComponentPresentations&quot;: {
+ *      &quot;__deferred&quot;: {
+ *        &quot;uri&quot;: &quot;http://127.0.0.1:8080/cd_webservice/odata.svc/Templates(PublicationId=1,ItemId=123)/ComponentPresentations&quot;
  *      }
  *    }
  *  }

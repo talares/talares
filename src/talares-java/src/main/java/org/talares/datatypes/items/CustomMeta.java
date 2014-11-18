@@ -29,31 +29,31 @@ import static org.talares.utils.Utils.await;
  * Example Json:
  * <pre>
  *  {
- *    "__metadata": {
- *      "uri": "http://127.0.0.1:8080/cd_webservice/odata.svc/CustomMetas(Id=12345)",
- *      "type": "Tridion.ContentDelivery.CustomMeta"
+ *    &quot;__metadata&quot;: {
+ *      &quot;uri&quot;: &quot;http://127.0.0.1:8080/cd_webservice/odata.svc/CustomMetas(Id=12345)&quot;,
+ *      &quot;type&quot;: &quot;Tridion.ContentDelivery.CustomMeta&quot;
  *    },
- *    "DateValue": null,
- *    "FloatValue": null,
- *    "Id": 123,
- *    "ItemId": 123,
- *    "ItemType": 1,
- *    "KeyName": "key",
- *    "PublicationId": 1,
- *    "StringValue": "A String",
- *    "Component": {
- *      "__deferred": {
- *        "uri": "http://127.0.0.1:8080/cd_webservice/odata.svc/CustomMetas(Id=12345)/Component"
+ *    &quot;DateValue&quot;: null,
+ *    &quot;FloatValue&quot;: null,
+ *    &quot;Id&quot;: 123,
+ *    &quot;ItemId&quot;: 123,
+ *    &quot;ItemType&quot;: 1,
+ *    &quot;KeyName&quot;: &quot;key&quot;,
+ *    &quot;PublicationId&quot;: 1,
+ *    &quot;StringValue&quot;: &quot;A String&quot;,
+ *    &quot;Component&quot;: {
+ *      &quot;__deferred&quot;: {
+ *        &quot;uri&quot;: &quot;http://127.0.0.1:8080/cd_webservice/odata.svc/CustomMetas(Id=12345)/Component&quot;
  *      }
  *    },
- *    "Page": {
- *      "__deferred": {
- *        "uri": "http://127.0.0.1:8080/cd_webservice/odata.svc/CustomMetas(Id=12345)/Page"
+ *    &quot;Page&quot;: {
+ *      &quot;__deferred&quot;: {
+ *        &quot;uri&quot;: &quot;http://127.0.0.1:8080/cd_webservice/odata.svc/CustomMetas(Id=12345)/Page&quot;
  *      }
  *    },
- *    "Keyword": {
- *      "__deferred": {
- *        "uri": "http://127.0.0.1:8080/cd_webservice/odata.svc/CustomMetas(Id=12345)/Keyword"
+ *    &quot;Keyword&quot;: {
+ *      &quot;__deferred&quot;: {
+ *        &quot;uri&quot;: &quot;http://127.0.0.1:8080/cd_webservice/odata.svc/CustomMetas(Id=12345)/Keyword&quot;
  *      }
  *    }
  *  }
@@ -136,7 +136,7 @@ public class CustomMeta extends Item {
    *
    * @param timeout the timeout in which the result should be present
    * @return a Component
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final Component getComponent_(final long timeout) throws TalaresException {
     return await(getComponent(), timeout);
@@ -146,7 +146,7 @@ public class CustomMeta extends Item {
    * <b>BLOCKING</b>
    *
    * @return a Component
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final Component getComponent_() throws TalaresException {
     return getComponent_(getApi().settings().timeout());
@@ -161,7 +161,7 @@ public class CustomMeta extends Item {
    *
    * @param timeout the timeout in which the result should be present
    * @return a Page
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final Page getPage_(final long timeout) throws TalaresException {
     return await(getPage(), timeout);
@@ -171,7 +171,7 @@ public class CustomMeta extends Item {
    * <b>BLOCKING</b>
    *
    * @return a Page
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final Page getPage_() throws TalaresException {
     return getPage_(getApi().settings().timeout());
@@ -186,7 +186,7 @@ public class CustomMeta extends Item {
    *
    * @param timeout the timeout in which the result should be present
    * @return a Keyword
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final Keyword getKeyword_(final long timeout) throws TalaresException {
     return await(getKeyword(), timeout);
@@ -196,7 +196,7 @@ public class CustomMeta extends Item {
    * <b>BLOCKING</b>
    *
    * @return a Keyword
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final Keyword getKeyword_() throws TalaresException {
     return getKeyword_(getApi().settings().timeout());

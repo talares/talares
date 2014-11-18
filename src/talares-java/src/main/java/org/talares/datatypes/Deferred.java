@@ -27,7 +27,7 @@ import static org.talares.utils.Utils.await;
 /**
  * A Deferred instance holds a {@link play.libs.F.Promise} of a B to be resolved by an additional call to the
  * webservice.
- * <p/>
+ * <p>
  * The call to said webservice will only be triggered when the value method is accessed.
  *
  * @author Dennis Vis
@@ -49,9 +49,9 @@ public class Deferred<A extends Item, B> {
 
   /**
    * Gets the {@link play.libs.F.Promise} of a B this Deferred holds.
-   * <p/>
+   * <p>
    * Fetches the {@link scala.concurrent.Future} from the Scala Deferred and wraps it in a {@link play.libs.F.Promise}.
-   * <p/>
+   * <p>
    * Then applies the {@link org.talares.datatypes.Deferred#transformFunc} to morph the result from a Scala A to it's
    * Java counterpart B.
    *
@@ -79,12 +79,12 @@ public class Deferred<A extends Item, B> {
 
   /**
    * <b>BLOCKING</b>
-   * <p/>
+   * <p>
    * Get the B held by this Deferred.
    *
    * @param timeout the timeout in milliseconds within which the B should be present
    * @return an instance of B
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final B getValue_(long timeout) throws TalaresException {
     return await(getValue(), timeout);
@@ -92,11 +92,11 @@ public class Deferred<A extends Item, B> {
 
   /**
    * <b>BLOCKING</b>
-   * <p/>
+   * <p>
    * Get the B held by this Deferred.
    *
    * @return an instance of B
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final B getValue_() throws TalaresException {
     return getValue_(api.settings().timeout());

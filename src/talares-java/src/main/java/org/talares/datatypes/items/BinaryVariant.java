@@ -28,21 +28,21 @@ import static org.talares.utils.Utils.await;
  * Example Json:
  * <pre>
  *  {
- *    "__metadata": {
- *      "uri": "http://127.0.0.1:8080/cd_webservice/odata.svc/BinaryVariants(BinaryId=123,PublicationId=1,VariantId='default')",
- *      "type": "Tridion.ContentDelivery.BinaryVariant"
+ *    &quot;__metadata&quot;: {
+ *      &quot;uri&quot;: &quot;http://127.0.0.1:8080/cd_webservice/odata.svc/BinaryVariants(BinaryId=123,PublicationId=1,VariantId='default')&quot;,
+ *      &quot;type&quot;: &quot;Tridion.ContentDelivery.BinaryVariant&quot;
  *    },
- *    "URLPath": "/dir/image.jpg",
- *    "BinaryId": 123,
- *    "Description": null,
- *    "IsComponent": true,
- *    "Path": "/dir/image.jpg",
- *    "PublicationId": 1,
- *    "Type": "image/jpeg",
- *    "VariantId": "default",
- *    "Binary": {
- *      "__deferred": {
- *        "uri": "http://127.0.0.1:8080/cd_webservice/odata.svc/BinaryVariants(BinaryId=123,PublicationId=1,VariantId='default')/Binary"
+ *    &quot;URLPath&quot;: &quot;/dir/image.jpg&quot;,
+ *    &quot;BinaryId&quot;: 123,
+ *    &quot;Description&quot;: null,
+ *    &quot;IsComponent&quot;: true,
+ *    &quot;Path&quot;: &quot;/dir/image.jpg&quot;,
+ *    &quot;PublicationId&quot;: 1,
+ *    &quot;Type&quot;: &quot;image/jpeg&quot;,
+ *    &quot;VariantId&quot;: &quot;default&quot;,
+ *    &quot;Binary&quot;: {
+ *      &quot;__deferred&quot;: {
+ *        &quot;uri&quot;: &quot;http://127.0.0.1:8080/cd_webservice/odata.svc/BinaryVariants(BinaryId=123,PublicationId=1,VariantId='default')/Binary&quot;
  *      }
  *    }
  *  }
@@ -119,7 +119,7 @@ public class BinaryVariant extends Item {
    *
    * @param timeout the timeout in which the result should be present
    * @return a Binary
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final Binary getBinary_(long timeout) throws TalaresException {
     return await(getBinary().getValue(), timeout);
@@ -129,7 +129,7 @@ public class BinaryVariant extends Item {
    * <b>BLOCKING</b>
    *
    * @return a Binary
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final Binary getBinary_() throws TalaresException {
     return getBinary_(getApi().settings().timeout());

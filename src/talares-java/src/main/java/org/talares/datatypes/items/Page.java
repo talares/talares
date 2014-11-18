@@ -28,47 +28,47 @@ import static org.talares.utils.Utils.await;
  * Example Json:
  * <pre>
  *  {
- *    "__metadata": {
- *      "uri": "http://127.0.0.1:8080/cd_webservice/odata.svc/Pages(ItemId=123,PublicationId=1)",
- *      "type": "Tridion.ContentDelivery.Page"
+ *    &quot;__metadata&quot;: {
+ *      &quot;uri&quot;: &quot;http://127.0.0.1:8080/cd_webservice/odata.svc/Pages(ItemId=123,PublicationId=1)&quot;,
+ *      &quot;type&quot;: &quot;Tridion.ContentDelivery.Page&quot;
  *    },
- *    "Author": null,
- *    "CreationDate": "/Date(1362655241000+60)/",
- *    "InitialPublishDate": "/Date(1371220702600+120)/",
- *    "ItemId": 123,
- *    "LastPublishDate": "/Date(1371793702520+120)/",
- *    "MajorVersion": 1,
- *    "MinorVersion": 2,
- *    "ModificationDate": "/Date(1363341350000+60)/",
- *    "OwningPublication": 1,
- *    "PagePath": "/path/file.doc",
- *    "PublicationId": 1,
- *    "TemplateId": 123,
- *    "Title": "A File",
- *    "Url": "/path/file.doc",
- *    "PageContent": {
- *      "__deferred": {
- *        "uri": "http://127.0.0.1:8080/cd_webservice/odata.svc/Pages(ItemId=123,PublicationId=1)/PageContent"
+ *    &quot;Author&quot;: null,
+ *    &quot;CreationDate&quot;: &quot;/Date(1362655241000+60)/&quot;,
+ *    &quot;InitialPublishDate&quot;: &quot;/Date(1371220702600+120)/&quot;,
+ *    &quot;ItemId&quot;: 123,
+ *    &quot;LastPublishDate&quot;: &quot;/Date(1371793702520+120)/&quot;,
+ *    &quot;MajorVersion&quot;: 1,
+ *    &quot;MinorVersion&quot;: 2,
+ *    &quot;ModificationDate&quot;: &quot;/Date(1363341350000+60)/&quot;,
+ *    &quot;OwningPublication&quot;: 1,
+ *    &quot;PagePath&quot;: &quot;/path/file.doc&quot;,
+ *    &quot;PublicationId&quot;: 1,
+ *    &quot;TemplateId&quot;: 123,
+ *    &quot;Title&quot;: &quot;A File&quot;,
+ *    &quot;Url&quot;: &quot;/path/file.doc&quot;,
+ *    &quot;PageContent&quot;: {
+ *      &quot;__deferred&quot;: {
+ *        &quot;uri&quot;: &quot;http://127.0.0.1:8080/cd_webservice/odata.svc/Pages(ItemId=123,PublicationId=1)/PageContent&quot;
  *      }
  *    },
- *    "StructureGroup": {
- *      "__deferred": {
- *        "uri": "http://127.0.0.1:8080/cd_webservice/odata.svc/Pages(ItemId=123,PublicationId=1)/StructureGroup"
+ *    &quot;StructureGroup&quot;: {
+ *      &quot;__deferred&quot;: {
+ *        &quot;uri&quot;: &quot;http://127.0.0.1:8080/cd_webservice/odata.svc/Pages(ItemId=123,PublicationId=1)/StructureGroup&quot;
  *      }
  *    },
- *    "ComponentPresentations": {
- *      "__deferred": {
- *        "uri": "http://127.0.0.1:8080/cd_webservice/odata.svc/Pages(ItemId=123,PublicationId=1)/ComponentPresentations"
+ *    &quot;ComponentPresentations&quot;: {
+ *      &quot;__deferred&quot;: {
+ *        &quot;uri&quot;: &quot;http://127.0.0.1:8080/cd_webservice/odata.svc/Pages(ItemId=123,PublicationId=1)/ComponentPresentations&quot;
  *      }
  *    },
- *    "Keywords": {
- *     "__deferred": {
- *        "uri": "http://127.0.0.1:8080/cd_webservice/odata.svc/Pages(ItemId=123,PublicationId=1)/Keywords"
+ *    &quot;Keywords&quot;: {
+ *     &quot;__deferred&quot;: {
+ *        &quot;uri&quot;: &quot;http://127.0.0.1:8080/cd_webservice/odata.svc/Pages(ItemId=123,PublicationId=1)/Keywords&quot;
  *      }
  *    },
- *    "CustomMetas": {
- *      "__deferred": {
- *        "uri": "http://127.0.0.1:8080/cd_webservice/odata.svc/Pages(ItemId=123,PublicationId=1)/CustomMetas"
+ *    &quot;CustomMetas&quot;: {
+ *      &quot;__deferred&quot;: {
+ *        &quot;uri&quot;: &quot;http://127.0.0.1:8080/cd_webservice/odata.svc/Pages(ItemId=123,PublicationId=1)/CustomMetas&quot;
  *      }
  *    }
  *  }
@@ -123,7 +123,7 @@ public class Page extends Taxonomised {
    *
    * @param timeout the timeout in which the result should be present
    * @return a PageContent
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final PageContent getPageContent_(final long timeout) throws TalaresException {
     return await(getPageContent(), timeout);
@@ -133,7 +133,7 @@ public class Page extends Taxonomised {
    * <b>BLOCKING</b>
    *
    * @return a PageContent
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final PageContent getPageContent_() throws TalaresException {
     return getPageContent_(getApi().settings().timeout());
@@ -148,7 +148,7 @@ public class Page extends Taxonomised {
    *
    * @param timeout the timeout in which the result should be present
    * @return a StructureGroup
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final StructureGroup getStructureGroup_(final long timeout) throws TalaresException {
     return await(getStructureGroup(), timeout);
@@ -158,7 +158,7 @@ public class Page extends Taxonomised {
    * <b>BLOCKING</b>
    *
    * @return a StructureGroup
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final StructureGroup getStructureGroup_() throws TalaresException {
     return getStructureGroup_(getApi().settings().timeout());
