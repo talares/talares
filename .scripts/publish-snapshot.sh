@@ -4,5 +4,5 @@ if [ "$TRAVIS_REPO_SLUG" == "talares/talares" ] && [ "$TRAVIS_PULL_REQUEST" == "
 
   echo "Publishing SNAPSHOT to Sonatype repositories..."
 
-  { sbt publish; };
+  { sbt +publish; };
 fi
