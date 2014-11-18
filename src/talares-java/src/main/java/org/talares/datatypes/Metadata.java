@@ -18,12 +18,12 @@ package org.talares.datatypes;
 /**
  * A Java representation of a __metadata field present in all Json representations of specific
  * {@link org.talares.datatypes.items.Item}'s.
- * <p/>
+ * <p>
  * Example Json:
  * <pre>
- * __metadata": {
- *   "uri": "http://127.0.0.1:8080/cd_webservice/odata.svc",
- *   "type": "Tridion.ContentDelivery.Item"
+ * __metadata&quot;: {
+ *   &quot;uri&quot;: &quot;http://127.0.0.1:8080/cd_webservice/odata.svc&quot;,
+ *   &quot;type&quot;: &quot;Tridion.ContentDelivery.Item&quot;
  * }
  * </pre>
  *

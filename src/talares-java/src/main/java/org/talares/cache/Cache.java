@@ -3,7 +3,7 @@ package org.talares.cache;
 /**
  * Interface whose instances allow the library to make use of a given cache implementation. This leaves the user free
  * to supply a cache solution of his own choosing.
- * <p/>
+ * <p>
  * An instance of one of the implementing types should be provided at library instantiation. When no cache instance is
  * provided the {@link org.talares.cache.NoCache} strategy is assumed. When an instance of
  * {@link org.talares.cache.Cache} is provided, the {@link org.talares.cache.SimpleCache} strategy is assumed.

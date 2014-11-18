@@ -31,28 +31,28 @@ import static org.talares.utils.Utils.await;
  * Example Json:
  * <pre>
  *  {
- *    "__metadata": {
- *      "uri": "http://127.0.0.1:8080/cd_webservice/odata.svc/StructureGroups(PublicationId=1,Id=2)",
- *      "type": "Tridion.ContentDelivery.StructureGroup"
+ *    &quot;__metadata&quot;: {
+ *      &quot;uri&quot;: &quot;http://127.0.0.1:8080/cd_webservice/odata.svc/StructureGroups(PublicationId=1,Id=2)&quot;,
+ *      &quot;type&quot;: &quot;Tridion.ContentDelivery.StructureGroup&quot;
  *    },
- *    "Depth": 0,
- *    "Directory": null,
- *    "Id": 123,
- *    "PublicationId": 1,
- *    "Title": "A title",
- *    "Pages": {
- *      "__deferred": {
- *          "uri": "http://127.0.0.1:8080/cd_webservice/odata.svc/StructureGroups(Id=2,PublicationId=1)/Pages"
+ *    &quot;Depth&quot;: 0,
+ *    &quot;Directory&quot;: null,
+ *    &quot;Id&quot;: 123,
+ *    &quot;PublicationId&quot;: 1,
+ *    &quot;Title&quot;: &quot;A title&quot;,
+ *    &quot;Pages&quot;: {
+ *      &quot;__deferred&quot;: {
+ *          &quot;uri&quot;: &quot;http://127.0.0.1:8080/cd_webservice/odata.svc/StructureGroups(Id=2,PublicationId=1)/Pages&quot;
  *      }
  *    },
- *    "Children": {
- *      "__deferred": {
- *        "uri": "http://127.0.0.1:8080/cd_webservice/odata.svc/StructureGroups(Id=2,PublicationId=1)/Children"
+ *    &quot;Children&quot;: {
+ *      &quot;__deferred&quot;: {
+ *        &quot;uri&quot;: &quot;http://127.0.0.1:8080/cd_webservice/odata.svc/StructureGroups(Id=2,PublicationId=1)/Children&quot;
  *      }
  *    },
- *    "Parent": {
- *      "__deferred": {
- *        "uri": "http://127.0.0.1:8080/cd_webservice/odata.svc/StructureGroups(Id=2,PublicationId=1)/Parent"
+ *    &quot;Parent&quot;: {
+ *      &quot;__deferred&quot;: {
+ *        &quot;uri&quot;: &quot;http://127.0.0.1:8080/cd_webservice/odata.svc/StructureGroups(Id=2,PublicationId=1)/Parent&quot;
  *      }
  *    }
  *  }
@@ -118,7 +118,7 @@ public class StructureGroup extends Item {
    *
    * @param timeout the timeout in which the result should be present
    * @return a List of Page's
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final List<Page> getPages_(final long timeout) throws TalaresException {
     return await(getPages(), timeout);
@@ -128,7 +128,7 @@ public class StructureGroup extends Item {
    * <b>BLOCKING</b>
    *
    * @return a List of Page's
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final List<Page> getPages_() throws TalaresException {
     return getPages_(getApi().settings().timeout());
@@ -143,7 +143,7 @@ public class StructureGroup extends Item {
    *
    * @param timeout the timeout in which the result should be present
    * @return a StructureGroup
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final StructureGroup getParent_(final long timeout) throws TalaresException {
     return await(getParent(), timeout);
@@ -153,7 +153,7 @@ public class StructureGroup extends Item {
    * <b>BLOCKING</b>
    *
    * @return a StructureGroup
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final StructureGroup getParent_() throws TalaresException {
     return getParent_(getApi().settings().timeout());
@@ -168,7 +168,7 @@ public class StructureGroup extends Item {
    *
    * @param timeout the timeout in which the result should be present
    * @return a List of StructureGroup's
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final List<StructureGroup> getChildren_(final long timeout) throws TalaresException {
     return await(getChildren(), timeout);
@@ -178,7 +178,7 @@ public class StructureGroup extends Item {
    * <b>BLOCKING</b>
    *
    * @return a List of StructureGroup's
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final List<StructureGroup> getChildren_() throws TalaresException {
     return getChildren_(getApi().settings().timeout());

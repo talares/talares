@@ -25,74 +25,74 @@ import static org.talares.utils.Utils.await;
 
 /**
  * A Java representation of a Publication content type.
- * <p/>
+ * <p>
  * Example Json:
  * <pre>
  *  {
- *    "__metadata": {
- *      "uri": "http://127.0.0.1:8080/cd_webservice/odata.svc/Publications(1)",
- *      "type": "Tridion.ContentDelivery.Publication"
+ *    &quot;__metadata&quot;: {
+ *      &quot;uri&quot;: &quot;http://127.0.0.1:8080/cd_webservice/odata.svc/Publications(1)&quot;,
+ *      &quot;type&quot;: &quot;Tridion.ContentDelivery.Publication&quot;
  *    },
- *    "Id": 1,
- *    "Key": "A key",
- *    "MultimediaPath": "\\Multimedia",
- *    "MultimediaUrl": "/Multimedia",
- *    "PublicationPath": "\\",
- *    "PublicationUrl": "/",
- *    "Title": "A title",
- *    "Schemas": {
- *      "__deferred": {
- *           "uri": "http://127.0.0.1:8080/cd_webservice/odata.svc/Publications(1)/Schemas"
+ *    &quot;Id&quot;: 1,
+ *    &quot;Key&quot;: &quot;A key&quot;,
+ *    &quot;MultimediaPath&quot;: &quot;\\Multimedia&quot;,
+ *    &quot;MultimediaUrl&quot;: &quot;/Multimedia&quot;,
+ *    &quot;PublicationPath&quot;: &quot;\\&quot;,
+ *    &quot;PublicationUrl&quot;: &quot;/&quot;,
+ *    &quot;Title&quot;: &quot;A title&quot;,
+ *    &quot;Schemas&quot;: {
+ *      &quot;__deferred&quot;: {
+ *           &quot;uri&quot;: &quot;http://127.0.0.1:8080/cd_webservice/odata.svc/Publications(1)/Schemas&quot;
  *      }
  *    },
- *    "ComponentPresentations": {
- *     "__deferred": {
- *        "uri": "http://127.0.0.1:8080/cd_webservice/odata.svc/Publications(1)/ComponentPresentations"
+ *    &quot;ComponentPresentations&quot;: {
+ *     &quot;__deferred&quot;: {
+ *        &quot;uri&quot;: &quot;http://127.0.0.1:8080/cd_webservice/odata.svc/Publications(1)/ComponentPresentations&quot;
  *      }
  *    },
- *    "Keywords": {
- *      "__deferred": {
- *        "uri": "http://127.0.0.1:8080/cd_webservice/odata.svc/Publications(1)/Keywords"
+ *    &quot;Keywords&quot;: {
+ *      &quot;__deferred&quot;: {
+ *        &quot;uri&quot;: &quot;http://127.0.0.1:8080/cd_webservice/odata.svc/Publications(1)/Keywords&quot;
  *      }
  *    },
- *    "Binaries": {
- *      "__deferred": {
- *        "uri": "http://127.0.0.1:8080/cd_webservice/odata.svc/Publications(1)/Binaries"
+ *    &quot;Binaries&quot;: {
+ *      &quot;__deferred&quot;: {
+ *        &quot;uri&quot;: &quot;http://127.0.0.1:8080/cd_webservice/odata.svc/Publications(1)/Binaries&quot;
  *       }
  *    },
- *    "BinaryVariants": {
- *      "__deferred": {
- *        "uri": "http://127.0.0.1:8080/cd_webservice/odata.svc/Publications(1)/BinaryVariants"
+ *    &quot;BinaryVariants&quot;: {
+ *      &quot;__deferred&quot;: {
+ *        &quot;uri&quot;: &quot;http://127.0.0.1:8080/cd_webservice/odata.svc/Publications(1)/BinaryVariants&quot;
  *      }
  *    },
- *    "Components": {
- *      "__deferred": {
- *        "uri": "http://127.0.0.1:8080/cd_webservice/odata.svc/Publications(1)/Components"
+ *    &quot;Components&quot;: {
+ *      &quot;__deferred&quot;: {
+ *        &quot;uri&quot;: &quot;http://127.0.0.1:8080/cd_webservice/odata.svc/Publications(1)/Components&quot;
  *      }
  *    },
- *    "CustomMetas": {
- *      "__deferred": {
- *        "uri": "http://127.0.0.1:8080/cd_webservice/odata.svc/Publications(1)/CustomMetas"
+ *    &quot;CustomMetas&quot;: {
+ *      &quot;__deferred&quot;: {
+ *        &quot;uri&quot;: &quot;http://127.0.0.1:8080/cd_webservice/odata.svc/Publications(1)/CustomMetas&quot;
  *      }
  *    },
- *    "Pages": {
- *      "__deferred": {
- *        "uri": "http://127.0.0.1:8080/cd_webservice/odata.svc/Publications(1)/Pages"
+ *    &quot;Pages&quot;: {
+ *      &quot;__deferred&quot;: {
+ *        &quot;uri&quot;: &quot;http://127.0.0.1:8080/cd_webservice/odata.svc/Publications(1)/Pages&quot;
  *      }
  *    },
- *    "PageContents": {
- *      "__deferred": {
- *        "uri": "http://127.0.0.1:8080/cd_webservice/odata.svc/Publications(1)/PageContents"
+ *    &quot;PageContents&quot;: {
+ *      &quot;__deferred&quot;: {
+ *        &quot;uri&quot;: &quot;http://127.0.0.1:8080/cd_webservice/odata.svc/Publications(1)/PageContents&quot;
  *      }
  *    },
- *    "StructureGroups": {
- *      "__deferred": {
- *        "uri": "http://127.0.0.1:8080/cd_webservice/odata.svc/Publications(1)/StructureGroups"
+ *    &quot;StructureGroups&quot;: {
+ *      &quot;__deferred&quot;: {
+ *        &quot;uri&quot;: &quot;http://127.0.0.1:8080/cd_webservice/odata.svc/Publications(1)/StructureGroups&quot;
  *      }
  *    },
- *    "Templates": {
- *      "__deferred": {
- *        "uri": "http://127.0.0.1:8080/cd_webservice/odata.svc/Publications(1)/Templates"
+ *    &quot;Templates&quot;: {
+ *      &quot;__deferred&quot;: {
+ *        &quot;uri&quot;: &quot;http://127.0.0.1:8080/cd_webservice/odata.svc/Publications(1)/Templates&quot;
  *      }
  *    }
  *  }
@@ -185,7 +185,7 @@ public class Publication extends Item {
    *
    * @param timeout the timeout in which the result should be present
    * @return a List of Schema's
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final List<Schema> getSchemas_(final long timeout) throws TalaresException {
     return await(getSchemas(), timeout);
@@ -195,7 +195,7 @@ public class Publication extends Item {
    * <b>BLOCKING</b>
    *
    * @return a List of Schema's
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final List<Schema> getSchemas_() throws TalaresException {
     return getSchemas_(getApi().settings().timeout());
@@ -210,7 +210,7 @@ public class Publication extends Item {
    *
    * @param timeout the timeout in which the result should be present
    * @return a List of ComponentPresentation's
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final List<ComponentPresentation> getComponentPresentations_(final long timeout) throws TalaresException {
     return await(getComponentPresentations(), timeout);
@@ -221,7 +221,7 @@ public class Publication extends Item {
    * <b>BLOCKING</b>
    *
    * @return a List of ComponentPresentation's
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final List<ComponentPresentation> getComponentPresentations_() throws TalaresException {
     return getComponentPresentations_(getApi().settings().timeout());
@@ -237,7 +237,7 @@ public class Publication extends Item {
    *
    * @param timeout the timeout in which the result should be present
    * @return a List of Keyword's
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final List<Keyword> getKeywords_(final long timeout) throws TalaresException {
     return await(getKeywords(), timeout);
@@ -247,7 +247,7 @@ public class Publication extends Item {
    * <b>BLOCKING</b>
    *
    * @return a List of Keyword's
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final List<Keyword> getKeywords_() throws TalaresException {
     return getKeywords_(getApi().settings().timeout());
@@ -262,7 +262,7 @@ public class Publication extends Item {
    *
    * @param timeout the timeout in which the result should be present
    * @return a List of Binary's
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final List<Binary> getBinaries_(final long timeout) throws TalaresException {
     return await(getBinaries(), timeout);
@@ -272,7 +272,7 @@ public class Publication extends Item {
    * <b>BLOCKING</b>
    *
    * @return a List of Binary's
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final List<Binary> getBinaries_() throws TalaresException {
     return getBinaries_(getApi().settings().timeout());
@@ -287,7 +287,7 @@ public class Publication extends Item {
    *
    * @param timeout the timeout in which the result should be present
    * @return a List of BinaryVariant's
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final List<BinaryVariant> getBinaryVariants_(final long timeout) throws TalaresException {
     return await(getBinaryVariants(), timeout);
@@ -297,7 +297,7 @@ public class Publication extends Item {
    * <b>BLOCKING</b>
    *
    * @return a List of BinaryVariant's
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final List<BinaryVariant> getBinaryVariants_() throws TalaresException {
     return getBinaryVariants_(getApi().settings().timeout());
@@ -312,7 +312,7 @@ public class Publication extends Item {
    *
    * @param timeout the timeout in which the result should be present
    * @return a List of Component's
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final List<Component> getComponents_(final long timeout) throws TalaresException {
     return await(getComponents(), timeout);
@@ -322,7 +322,7 @@ public class Publication extends Item {
    * <b>BLOCKING</b>
    *
    * @return a List of Component's
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final List<Component> getComponents_() throws TalaresException {
     return getComponents_(getApi().settings().timeout());
@@ -337,7 +337,7 @@ public class Publication extends Item {
    *
    * @param timeout the timeout in which the result should be present
    * @return a List of CustomMeta's
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final List<CustomMeta> getCustomMetas_(final long timeout) throws TalaresException {
     return await(getCustomMetas(), timeout);
@@ -347,7 +347,7 @@ public class Publication extends Item {
    * <b>BLOCKING</b>
    *
    * @return a List of CustomMeta's
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final List<CustomMeta> getCustomMetas_() throws TalaresException {
     return getCustomMetas_(getApi().settings().timeout());
@@ -362,7 +362,7 @@ public class Publication extends Item {
    *
    * @param timeout the timeout in which the result should be present
    * @return a List of Page's
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final List<Page> getPages_(final long timeout) throws TalaresException {
     return await(getPages(), timeout);
@@ -372,7 +372,7 @@ public class Publication extends Item {
    * <b>BLOCKING</b>
    *
    * @return a List of Page's
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final List<Page> getPages_() throws TalaresException {
     return getPages_(getApi().settings().timeout());
@@ -387,7 +387,7 @@ public class Publication extends Item {
    *
    * @param timeout the timeout in which the result should be present
    * @return a List of PageContent's
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final List<PageContent> getPageContents_(final long timeout) throws TalaresException {
     return await(getPageContents(), timeout);
@@ -397,7 +397,7 @@ public class Publication extends Item {
    * <b>BLOCKING</b>
    *
    * @return a List of PageContent's
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final List<PageContent> getPageContents_() throws TalaresException {
     return getPageContents_(getApi().settings().timeout());
@@ -412,7 +412,7 @@ public class Publication extends Item {
    *
    * @param timeout the timeout in which the result should be present
    * @return a List of StructureGroup's
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final List<StructureGroup> getStructureGroups_(final long timeout) throws TalaresException {
     return await(getStructureGroups(), timeout);
@@ -422,7 +422,7 @@ public class Publication extends Item {
    * <b>BLOCKING</b>
    *
    * @return a List of StructureGroup's
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final List<StructureGroup> getStructureGroups_() throws TalaresException {
     return getStructureGroups_(getApi().settings().timeout());
@@ -437,7 +437,7 @@ public class Publication extends Item {
    *
    * @param timeout the timeout in which the result should be present
    * @return a List of Template's
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final List<Template> getTemplates_(final long timeout) throws TalaresException {
     return await(getTemplates(), timeout);
@@ -447,7 +447,7 @@ public class Publication extends Item {
    * <b>BLOCKING</b>
    *
    * @return a List of Template's
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final List<Template> getTemplates_() throws TalaresException {
     return getTemplates_(getApi().settings().timeout());

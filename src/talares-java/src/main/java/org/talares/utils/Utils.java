@@ -14,7 +14,7 @@ public abstract class Utils {
 
   /**
    * Await a {@link play.libs.F.Promise} of type 'T'.
-   * <p/>
+   * <p>
    * Uses the specified long as timeout. Wraps any exception thrown by the {@link play.libs.F.Promise} in a
    * {@link org.talares.api.exceptions.TalaresException}.
    *
@@ -22,7 +22,7 @@ public abstract class Utils {
    * @param timeout the timeout used for waiting
    * @param <T>     the type of object the {@link play.libs.F.Promise} holds
    * @return the value of type 'T' produced by the {@link play.libs.F.Promise}
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public static <T> T await(F.Promise<T> promise, long timeout) throws TalaresException {
     try {

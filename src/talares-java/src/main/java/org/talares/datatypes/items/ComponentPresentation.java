@@ -31,28 +31,28 @@ import static org.talares.utils.Utils.await;
  * Example Json:
  * <pre>
  *  {
- *    "__metadata": {
- *      "uri": "http://127.0.0.1:8080/cd_webservice/odata.svc/ComponentPresentations(PublicationId=1,ComponentId=123,TemplateId=1234)",
- *      "type": "Tridion.ContentDelivery.ComponentPresentation"
+ *    &quot;__metadata&quot;: {
+ *      &quot;uri&quot;: &quot;http://127.0.0.1:8080/cd_webservice/odata.svc/ComponentPresentations(PublicationId=1,ComponentId=123,TemplateId=1234)&quot;,
+ *      &quot;type&quot;: &quot;Tridion.ContentDelivery.ComponentPresentation&quot;
  *    },
- *    "ComponentId": 123,
- *    "OutputFormat": "HTML Fragment",
- *    "PresentationContent": "<h1>Some content</h1>",
- *    "PublicationId": 1,
- *    "TemplateId": 123,
- *    "Component": {
- *     "__deferred": {
- *          "uri": "http://127.0.0.1:8080/cd_webservice/odata.svc/ComponentPresentations(PublicationId=1,ComponentId=123,TemplateId=1234)/Component"
+ *    &quot;ComponentId&quot;: 123,
+ *    &quot;OutputFormat&quot;: &quot;HTML Fragment&quot;,
+ *    &quot;PresentationContent&quot;: &quot;&lt;h1&gt;Some content&lt;/h1&gt;&quot;,
+ *    &quot;PublicationId&quot;: 1,
+ *    &quot;TemplateId&quot;: 123,
+ *    &quot;Component&quot;: {
+ *     &quot;__deferred&quot;: {
+ *          &quot;uri&quot;: &quot;http://127.0.0.1:8080/cd_webservice/odata.svc/ComponentPresentations(PublicationId=1,ComponentId=123,TemplateId=1234)/Component&quot;
  *      }
  *    },
- *    "Template": {
- *      "__deferred": {
- *        "uri": "http://127.0.0.1:8080/cd_webservice/odata.svc/ComponentPresentations(PublicationId=1,ComponentId=123,TemplateId=1234)/Template"
+ *    &quot;Template&quot;: {
+ *      &quot;__deferred&quot;: {
+ *        &quot;uri&quot;: &quot;http://127.0.0.1:8080/cd_webservice/odata.svc/ComponentPresentations(PublicationId=1,ComponentId=123,TemplateId=1234)/Template&quot;
  *      }
  *    },
- *    "Pages": {
- *      "__deferred": {
- *         "uri": "http://127.0.0.1:8080/cd_webservice/odata.svc/ComponentPresentations(PublicationId=1,ComponentId=123,TemplateId=1234)/Pages"
+ *    &quot;Pages&quot;: {
+ *      &quot;__deferred&quot;: {
+ *         &quot;uri&quot;: &quot;http://127.0.0.1:8080/cd_webservice/odata.svc/ComponentPresentations(PublicationId=1,ComponentId=123,TemplateId=1234)/Pages&quot;
  *      }
  *    }
  *  }
@@ -118,7 +118,7 @@ public class ComponentPresentation extends Item {
    *
    * @param timeout the timeout in which the result should be present
    * @return a Component
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final Component getComponent_(long timeout) throws TalaresException {
     return await(getComponent(), timeout);
@@ -128,7 +128,7 @@ public class ComponentPresentation extends Item {
    * <b>BLOCKING</b>
    *
    * @return a Component
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final Component getComponent_() throws TalaresException {
     return getComponent_(getApi().settings().timeout());
@@ -143,7 +143,7 @@ public class ComponentPresentation extends Item {
    *
    * @param timeout the timeout in which the result should be present
    * @return a Template
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final Template getTemplate_(long timeout) throws TalaresException {
     return await(getTemplate(), timeout);
@@ -153,7 +153,7 @@ public class ComponentPresentation extends Item {
    * <b>BLOCKING</b>
    *
    * @return a Template
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final Template getTemplate_() throws TalaresException {
     return getTemplate_(getApi().settings().timeout());
@@ -168,7 +168,7 @@ public class ComponentPresentation extends Item {
    *
    * @param timeout the timeout in which the result should be present
    * @return a List of Page's
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final List<Page> getPages_(long timeout) throws TalaresException {
     return await(getPages(), timeout);
@@ -178,7 +178,7 @@ public class ComponentPresentation extends Item {
    * <b>BLOCKING</b>
    *
    * @return a List of Page's
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final List<Page> getPages_() throws TalaresException {
     return getPages_(getApi().settings().timeout());

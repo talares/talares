@@ -2,7 +2,7 @@ package org.talares.cache;
 
 /**
  * Leverages the given functions get and set to either retrieve or store objects from and into the cache respectively.
- * <p/>
+ * <p>
  * Does not add any additional caching logic and as such honors the given cache's configuration.
  *
  * @author Dennis Vis

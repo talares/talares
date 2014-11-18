@@ -6,13 +6,13 @@ package org.talares.datatypes.items;
  * Example Json:
  * <pre>
  *  {
- *    "__metadata": {
- *      "uri": "http://127.0.0.1:8080/cd_webservice/odata.svc/Binaries(BinaryId=123,PublicationId=1)",
- *      "type": "Tridion.ContentDelivery.BinaryContent"
+ *    &quot;__metadata&quot;: {
+ *      &quot;uri&quot;: &quot;http://127.0.0.1:8080/cd_webservice/odata.svc/Binaries(BinaryId=123,PublicationId=1)&quot;,
+ *      &quot;type&quot;: &quot;Tridion.ContentDelivery.BinaryContent&quot;
  *    },
- *    "BinaryId": 123,
- *    "PublicationId": 1,
- *    "VariantId": "123"
+ *    &quot;BinaryId&quot;: 123,
+ *    &quot;PublicationId&quot;: 1,
+ *    &quot;VariantId&quot;: &quot;123&quot;
  *  }
  * </pre>
  *

@@ -31,45 +31,45 @@ import static org.talares.utils.Utils.await;
  * Example Json:
  * <pre>
  *  {
- *    "__metadata": {
- *      "uri": "http://127.0.0.1:8080/cd_webservice/odata.svc/Keywords(PublicationId=1,Id=2)",
- *      "type": "Tridion.ContentDelivery.Keyword"
+ *    &quot;__metadata&quot;: {
+ *      &quot;uri&quot;: &quot;http://127.0.0.1:8080/cd_webservice/odata.svc/Keywords(PublicationId=1,Id=2)&quot;,
+ *      &quot;type&quot;: &quot;Tridion.ContentDelivery.Keyword&quot;
  *    },
- *    "Id": 123,
- *    "PublicationId": 1,
- *    "TaxonomyId": 123,
- *    "Title": "A title",
- *    "Description": "A description",
- *    "HasChildren": false,
- *    "Abstract": false,
- *    "Navigable": false,
- *    "Key": "A key",
- *    "Depth": 0,
- *    "ItemType": 1,
- *    "TotalRelatedItems": 1,
- *    "Components": {
- *      "__deferred": {
- *          "uri": "http://127.0.0.1:8080/cd_webservice/odata.svc/Keywords(Id=2,PublicationId=1)/Components"
+ *    &quot;Id&quot;: 123,
+ *    &quot;PublicationId&quot;: 1,
+ *    &quot;TaxonomyId&quot;: 123,
+ *    &quot;Title&quot;: &quot;A title&quot;,
+ *    &quot;Description&quot;: &quot;A description&quot;,
+ *    &quot;HasChildren&quot;: false,
+ *    &quot;Abstract&quot;: false,
+ *    &quot;Navigable&quot;: false,
+ *    &quot;Key&quot;: &quot;A key&quot;,
+ *    &quot;Depth&quot;: 0,
+ *    &quot;ItemType&quot;: 1,
+ *    &quot;TotalRelatedItems&quot;: 1,
+ *    &quot;Components&quot;: {
+ *      &quot;__deferred&quot;: {
+ *          &quot;uri&quot;: &quot;http://127.0.0.1:8080/cd_webservice/odata.svc/Keywords(Id=2,PublicationId=1)/Components&quot;
  *      }
  *    },
- *    "Pages": {
- *      "__deferred": {
- *          "uri": "http://127.0.0.1:8080/cd_webservice/odata.svc/Keywords(Id=2,PublicationId=1)/Pages"
+ *    &quot;Pages&quot;: {
+ *      &quot;__deferred&quot;: {
+ *          &quot;uri&quot;: &quot;http://127.0.0.1:8080/cd_webservice/odata.svc/Keywords(Id=2,PublicationId=1)/Pages&quot;
  *      }
  *    },
- *    "CustomMetas": {
- *      "__deferred": {
- *          "uri": "http://127.0.0.1:8080/cd_webservice/odata.svc/Keywords(Id=2,PublicationId=1)/CustomMetas"
+ *    &quot;CustomMetas&quot;: {
+ *      &quot;__deferred&quot;: {
+ *          &quot;uri&quot;: &quot;http://127.0.0.1:8080/cd_webservice/odata.svc/Keywords(Id=2,PublicationId=1)/CustomMetas&quot;
  *      }
  *    },
- *    "Children": {
- *      "__deferred": {
- *        "uri": "http://127.0.0.1:8080/cd_webservice/odata.svc/Keywords(Id=2,PublicationId=1)/Children"
+ *    &quot;Children&quot;: {
+ *      &quot;__deferred&quot;: {
+ *        &quot;uri&quot;: &quot;http://127.0.0.1:8080/cd_webservice/odata.svc/Keywords(Id=2,PublicationId=1)/Children&quot;
  *      }
  *    },
- *    "Parent": {
- *      "__deferred": {
- *        "uri": "http://127.0.0.1:8080/cd_webservice/odata.svc/Keywords(Id=2,PublicationId=1)/Parent"
+ *    &quot;Parent&quot;: {
+ *      &quot;__deferred&quot;: {
+ *        &quot;uri&quot;: &quot;http://127.0.0.1:8080/cd_webservice/odata.svc/Keywords(Id=2,PublicationId=1)/Parent&quot;
  *      }
  *    }
  *  }
@@ -179,7 +179,7 @@ public class Keyword extends Item {
    *
    * @param timeout the timeout in which the result should be present
    * @return a List of Component's
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final List<Component> getComponents_(final long timeout) throws TalaresException {
     return await(getComponents(), timeout);
@@ -189,7 +189,7 @@ public class Keyword extends Item {
    * <b>BLOCKING</b>
    *
    * @return a List of Component's
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final List<Component> getComponents_() throws TalaresException {
     return getComponents_(getApi().settings().timeout());
@@ -204,7 +204,7 @@ public class Keyword extends Item {
    *
    * @param timeout the timeout in which the result should be present
    * @return a List of Page's
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final List<Page> getPages_(final long timeout) throws TalaresException {
     return await(getPages(), timeout);
@@ -214,7 +214,7 @@ public class Keyword extends Item {
    * <b>BLOCKING</b>
    *
    * @return a List of Page's
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final List<Page> getPages_() throws TalaresException {
     return getPages_(getApi().settings().timeout());
@@ -229,7 +229,7 @@ public class Keyword extends Item {
    *
    * @param timeout the timeout in which the result should be present
    * @return a List of CustomMeta's
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final List<CustomMeta> getCustomMetas_(final long timeout) throws TalaresException {
     return await(getCustomMetas(), timeout);
@@ -239,7 +239,7 @@ public class Keyword extends Item {
    * <b>BLOCKING</b>
    *
    * @return a List of CustomMeta's
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final List<CustomMeta> getCustomMetas_() throws TalaresException {
     return getCustomMetas_(getApi().settings().timeout());
@@ -254,7 +254,7 @@ public class Keyword extends Item {
    *
    * @param timeout the timeout in which the result should be present
    * @return a List of Keyword's
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final List<Keyword> getChildren_(final long timeout) throws TalaresException {
     return await(getChildren(), timeout);
@@ -264,7 +264,7 @@ public class Keyword extends Item {
    * <b>BLOCKING</b>
    *
    * @return a List of Keyword's
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final List<Keyword> getChildren_() throws TalaresException {
     return getChildren_(getApi().settings().timeout());
@@ -279,7 +279,7 @@ public class Keyword extends Item {
    *
    * @param timeout the timeout in which the result should be present
    * @return a Keyword
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final Keyword getParent_(final long timeout) throws TalaresException {
     return await(getParent(), timeout);
@@ -289,7 +289,7 @@ public class Keyword extends Item {
    * <b>BLOCKING</b>
    *
    * @return a Keyword
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final Keyword getParent_() throws TalaresException {
     return getParent_(getApi().settings().timeout());

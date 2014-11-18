@@ -32,7 +32,7 @@ import static play.libs.Scala.asJava;
 /**
  * A DeferredList instance holds a {@link play.libs.F.Promise} of a {@link java.util.List} of B to be resolved by an 
  * additional call to the webservice.
- * <p/>
+ * <p>
  * The call to said webservice will only be triggered when the value method is accessed.
  *
  * @author Dennis Vis
@@ -54,10 +54,10 @@ public class DeferredList<A extends Item, B> {
 
   /**
    * Gets the {@link play.libs.F.Promise} of a {@link java.util.List} of B this DeferredList holds.
-   * <p/>
+   * <p>
    * Fetches the {@link scala.concurrent.Future} from the Scala DeferredSeq and wraps it in a
    * {@link play.libs.F.Promise}.
-   * <p/>
+   * <p>
    * Then applies the {@link org.talares.datatypes.Deferred#transformFunc} to morph the result from a Scala
    * {@link scala.collection.Seq} of A it's Java counterpart; a {@link java.util.List} of B.
    *
@@ -89,12 +89,12 @@ public class DeferredList<A extends Item, B> {
 
   /**
    * <b>BLOCKING</b>
-   * <p/>
+   * <p>
    * Get the {@link java.util.List} of B held by this DeferredList.
    *
    * @param timeout the timeout in milliseconds within which the {@link java.util.List} of B should be present
    * @return an instance of B
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final List<B> getValue_(long timeout) throws TalaresException {
     return await(getValue(), timeout);
@@ -102,11 +102,11 @@ public class DeferredList<A extends Item, B> {
 
   /**
    * <b>BLOCKING</b>
-   * <p/>
+   * <p>
    * Get the {@link java.util.List} of B held by this DeferredList.
    *
    * @return an instance of B
-   * @throws TalaresException
+   * @throws TalaresException wrapping multiple possible exception cases
    */
   public final List<B> getValue_() throws TalaresException {
     return getValue_(api.settings().timeout());
