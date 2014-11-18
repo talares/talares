@@ -5,8 +5,12 @@ jdk:
 scala:
 - 2.11.4
 - 2.10.4
+script: sbt clean test doc
 env:
   global:
-    secure: DA34b4EK46MXK4uOozXuAiMOTo+I3nZQ98KBAwOST/5fouqhTEM1w9xm04jvvoEUtuIwmN1tlEi+5aaRiECqzYOb2EClCschHB+MJ513xW53Bu81wzgFCPVUNBtPaTIqxLqVMVTHV+CSnRj+kT+RRfqtBeWV1kPRkOAfG49Gboo=
+  - secure: DA34b4EK46MXK4uOozXuAiMOTo+I3nZQ98KBAwOST/5fouqhTEM1w9xm04jvvoEUtuIwmN1tlEi+5aaRiECqzYOb2EClCschHB+MJ513xW53Bu81wzgFCPVUNBtPaTIqxLqVMVTHV+CSnRj+kT+RRfqtBeWV1kPRkOAfG49Gboo=
+  - secure: jC7aqn9PTQS2V8+oP8XUCJrqKGnLJcc5rBmDtHS/ZzNteAb6wL9x3/WdRLg17Jv9w1NbyrrZmUAgg4Pc7QoSBEu5rtoBAWlfD+lWfwbC41bd4rdgvtqIOeybVF6d+Z35uhYHKaA4WdDhkM3MR3ps0wNdA93AVMNvQF0LBODX17o=
+  - secure: gnUqUdh7bqrTI8ycnm9a6Zn7YkCakAQN387A3qqhzxZ16nwJvmTTnVQcm8GVFrWrPChJ3W5BbcSY7xziyKkzMJcFijZpjc3TO8k7BR2c9Xo6RqzkOLQJlHjG/egkV5nU3tJcKsk+B94TSKmk3AXWnFKUENSyqf1pMDz/BQMjTFc=
 after_success:
-- bash .scripts/publish-documentation.sh
+  - bash .scripts/publish-documentation.sh
+  - bash .scripts/publish-snapshot.sh
